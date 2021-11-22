@@ -1,0 +1,92 @@
+.hapo-admin {
+  .hapo-admin-header {
+    background-color: grey;
+
+    .hapo-admin-header-name {
+      -webkit-text-stroke: 0.5px;
+      @include fontUTM(bold, 25px, $main_color);
+    }
+
+    .hapo-admin-header-link {
+      .nav-item {
+        display: flex;
+        align-items: center;
+
+        a {
+          -webkit-text-stroke: 0.5px;
+          @include fontUTM(bold, 20px, $main_color);
+        }
+      }
+
+      .hapo-angle-right {
+        color: $main_color;
+      }
+    }
+
+    #formSearchUser {
+      i {
+        margin-left: -30px;
+      }
+    }
+  }
+
+  .hapo-admin-body {
+    background-color: $main_color;
+
+    table {
+      th {
+        -webkit-text-stroke: 0.5px;
+        @include fontUTM(bold, 20px, #000000);
+      }
+
+      td {
+        -webkit-text-stroke: 0.1px;
+        @include fontUTM(bold, 18px, #000000);
+      }
+    }
+
+    .hapo-admin-pages {
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.hapo-img-avatar {
+  width: 150px;
+  height: 150px;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5%;
+  }
+}
+
+.hapo-infor-name {
+  @include fontUTM(bold, 18px, #000000);
+
+  strong {
+    -webkit-text-stroke: 0.5px;
+    text-transform: capitalize;
+  }
+}
+
+.form-group {
+  label {
+    -webkit-text-stroke: 0.3px;
+    @include fontUTM(bold, 18px, #000000);
+  }
+
+  input {
+    -webkit-text-stroke: 0.1px;
+    @include fontUTM(normal, 15px, #747474);
+  }
+}
+
+.hapo-admin-footer {
+  -webkit-text-stroke: 0.5px;
+  @include fontUTM(bold, 18px, #000000);
+}

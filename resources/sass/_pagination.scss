@@ -1,0 +1,21 @@
+.pagination {
+  .page-item {
+    padding: 5px;
+    @include fontUTM(bold, 20px, $color_link);
+
+    .page-link {
+      color: $color_link;
+      border: 1px solid $color_link;
+      box-sizing: border-box;
+      border-radius: 3px;
+    }
+  }
+
+  .page-item.active {
+    .page-link {
+      z-index: 3;
+      color: #fff;
+      background: #b2d235;
+    }
+  }
+}

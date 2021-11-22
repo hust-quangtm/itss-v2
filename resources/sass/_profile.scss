@@ -1,0 +1,149 @@
+.hapo-profile-fulid {
+  background-color: #f2f2f2;
+
+  .hapo-profile {
+    padding: 30px 80px;
+  }
+}
+
+.hapo-profile-left-header {
+  border-bottom: 2px solid #dcdcdc;
+
+  .hapo-profile-image {
+    img {
+      border-radius: 50%;
+      width: 260px;
+      height: 260px;
+    }
+
+    .btn-img {
+      position: absolute;
+      top: 230px;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      color: white;
+      font-size: 30px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      &:hover {
+        color: #505353;
+      }
+    }
+  }
+
+  .hapo-profile-contact {
+    .profile-name {
+      @include fontUTM(bold, 25px, $color_title);
+    }
+
+    .profile-email {
+      @include fontUTM(normal, 18px, $color_title);
+    }
+  }
+}
+
+.hapo-profile-left-body {
+  .hapo-contact-text {
+    border-bottom: 2px solid #dcdcdc;
+    padding: 20px 0;
+
+    span {
+      @include fontUTM(normal, 18px, $color_title);
+    }
+  }
+
+  .hapo-left-body-desc {
+    @include fontUTM(normal, 18px, #787b7b);
+  }
+}
+
+.hapo-profile-right-header,
+.hapo-profile-right-body {
+  .hapo-profile-right-title {
+    border-bottom: 5px double $color_link;
+    -webkit-text-stroke: 0.5px;
+    @include fontUTM(bold, 38px, $color_title);
+  }
+}
+
+.hapo-profile-right-header {
+  .hapo-profile-allcourse {
+    @include fontUTM(bold, 14px, $color_title);
+  }
+
+  .hapo-right-imgcourse {
+    img {
+      width: 65px;
+      height: 65px;
+    }
+
+    .add-course {
+      color: $color_link;
+    }
+  }
+}
+
+.hapo-profile-right-body {
+  .form-group {
+    input,
+    textarea {
+      @include fontUTM(normal, 18px, $color_title);
+    }
+
+    button {
+      background-color: $color_link;
+      border-radius: 22px;
+      @include fontUTM(bold, 18px, $main_color);
+    }
+  }
+}
+
+.hapo-icon-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hapo-input-file {
+  margin: 0 auto;
+  width: 100%;
+  height: 100px;
+  position: relative;
+
+  .invalid-feedback {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.hapo-input-label {
+  border-radius: 8px;
+  padding: 20px 0;
+  border: 1px dotted gainsboro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.hapo-icon-upload {
+  color: #cccccc;
+  font-size: 3rem;
+  pointer-events: none;
+}
+
+.hapo-img-upload {
+  width: 150px;
+  height: 150px;
+}
+
+.modal-title {
+  @include fontUTM(bold, 32px, $color_title);
+}

@@ -1,0 +1,588 @@
+@media (max-width: 768px) {
+  header {
+    .img-logo {
+      width: 300px;
+      height: 61.74px;
+    }
+  }
+
+  #sibarNavbar {
+    padding: 5px 0;
+
+    li {
+      margin-bottom: 15px;
+      margin: 7px 7px;
+
+      a {
+        margin: 0;
+      }
+    }
+  }
+
+  .hapo-wrap-banner {
+    .hapo-slide-dect {
+      font-family: UTM;
+      padding: 80px 0;
+      margin-left: 30px;
+
+      .hapo-txt {
+        @include fontUTM(normal, 30px, $color_txt);
+      }
+
+      .hapo-txt-title {
+        @include fontUTM(bold, 30px, $color_txt);
+      }
+
+      .hapo-txt-dect p {
+        height: 40px;
+        padding: 10px 0;
+        margin-top: 5px;
+        letter-spacing: -0.05em;
+        @include fontUTM(normal, 16px, #505353);
+      }
+
+      .hapo-ow {
+        width: 34px;
+        height: 34px;
+      }
+
+      .hapo-slide-button {
+        transform: translateY(30%);
+      }
+
+      .hapo-slide-button-link {
+        padding: 10px 40px;
+        height: 37px;
+        @include fontUTM(bold, 16px, $main_color);
+        line-height: 35px;
+      }
+    }
+  }
+
+  .block-messenger {
+    .messenger {
+      width: 50px;
+      height: 50px;
+
+      .icon-mes {
+        width: 37px;
+        height: 37px;
+      }
+    }
+  }
+
+  .hapo-wrap-learn {
+    padding: 8% 0;
+
+    .hapo-content-learn {
+      @include fontUTM(bold, 35px, $main_color);
+    }
+
+    .btn-learn-link {
+      @include fontUTM(bold, 18px, #90ab26);
+    }
+  }
+
+  .hapo-course-all {
+    padding: 0 25px;
+  }
+
+  .hapo-course {
+    .hapo-course-item {
+      margin: 0 7px;
+
+      .card-title {
+        font: normal bold 20px/25px UTM;
+        letter-spacing: -0.05em;
+        color: $color_link;
+      }
+
+      .hapo-course-header {
+        padding: 12%;
+        height: 150px;
+      }
+
+      .card-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        @include fontUTM(bold, 14px, #505353);
+        letter-spacing: -0.05em;
+      }
+
+      .hapo-courses-btn {
+        font: normal bold 10px/20px UTM;
+        -webkit-text-stroke-width: 0.05px;
+      }
+    }
+  }
+
+  .hapo-courses-other {
+    margin-top: 50px;
+    margin-bottom: 20px;
+
+    p {
+      @include fontUTM(bold, 50px, $color_txt);
+    }
+  }
+
+  .all-courses {
+    letter-spacing: -0.02em;
+    padding: 50px 0;
+
+    .hapo-courses-link-all {
+      font-size: 28px;
+    }
+  }
+
+  .hapo-wrap-inf {
+    .hapo-inf-content {
+      padding: 80px 0;
+
+      .hapo-inf-heading {
+        top: -5px;
+        display: block;
+        text-align: center;
+        font: normal bold 50px/61px UTM;
+      }
+
+      .hapo-content {
+        top: 30px;
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      li {
+        margin-bottom: 20px;
+        font: 14px/20px UTM;
+      }
+    }
+
+    .hapo-inf-topleft {
+      transform: scale(0.6);
+      margin-top: -20px;
+      margin-left: -85px;
+    }
+
+    .hapo-inf-image-md {
+      padding: 0;
+      transform: scale(1.1);
+      top: 50px;
+      right: 15px;
+      height: 279px;
+    }
+  }
+
+  .hapo-feedback {
+    .hapo-title-feedback {
+      .hapo-txt-title {
+        font-size: 50px;
+      }
+
+      .hapo-txt-decs {
+        line-height: 22px;
+        @include fontUTM(normal, 18px, #505353);
+      }
+    }
+
+    .hapo-element-cmt {
+      width: 80%;
+      height: 80%;
+    }
+
+    .hapo-img-account {
+      margin-left: 100px;
+    }
+
+    .controls-top {
+      .prev {
+        margin-left: 64px;
+      }
+
+      .next {
+        margin-right: 64px;
+      }
+    }
+  }
+
+  .hapo-wrap-statistic {
+    .hapo-statistic-header p {
+      margin: 25px auto 10px auto;
+      @include fontUTM(bold, 50px, $color_txt);
+    }
+
+    .hapo-statistic-body {
+      .hapo-statistic-name,
+      .hapo-statistic-data {
+        text-align: center;
+        font: normal bold 40px/49px UTM;
+        letter-spacing: -0.05em;
+      }
+
+      .hapo-statistic-data {
+        margin: 20px auto 50px auto;
+        color: $color_link;
+      }
+    }
+  }
+
+  footer {
+    .container-content {
+      padding: 30px 50px 10px 50px;
+    }
+
+    .hapo-footer-logo img {
+      width: 170px;
+      height: 35px;
+    }
+
+    .hapo-footer-logo p {
+      margin-left: 0;
+      @include fontUTM(normal, 15px, $main_color);
+    }
+
+    .hapo-nav-footer {
+      li {
+        margin-bottom: 8px;
+      }
+
+      a {
+        @include fontUTM(bold, 18px, $main_color);
+      }
+    }
+
+    .hapo-nav-footer-icon {
+      margin-top: -30px;
+
+      a {
+        width: 40px;
+        height: 40px;
+        margin: auto 7px;
+      }
+
+      .img-facebook {
+        width: 12px;
+        height: 26px;
+      }
+
+      .img-call {
+        width: 26px;
+        height: 26px;
+      }
+
+      .icon-mail {
+        font-size: x-large;
+      }
+    }
+
+    .hapo-copyright {
+      height: 38px;
+      position: initial;
+
+      p {
+        @include fontUTM(normal, 15px, $main_color);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  #sibarNavbar {
+    padding: 5px 10px;
+
+    li {
+      margin: 15px auto 5px auto;
+
+      a {
+        text-align: center;
+        &:hover {
+          color: $color_link;
+          background: $main_color;
+        }
+      }
+    }
+  }
+
+  .hapo-wrap-banner {
+    .hapo-slide-dect {
+      padding: 5px 0;
+      transform: translateY(100%);
+      margin-left: 0;
+
+      .hapo-txt {
+        @include fontUTM(normal, 25px, $color_txt);
+      }
+
+      .hapo-txt-title {
+        @include fontUTM(bold, 25px, $color_txt);
+      }
+
+      .hapo-txt,
+      .hapo-txt-title,
+      .hapo-txt-dect {
+        margin-left: 30px;
+      }
+
+      .hapo-txt-dect p {
+        letter-spacing: -0.05em;
+        padding: 5px 0;
+        margin-bottom: 20px;
+        @include fontUTM(normal, 16px, #505353);
+      }
+
+      .hapo-ow {
+        width: 25px;
+        height: 25px;
+      }
+
+      .hapo-slide-button {
+        display: flex;
+        justify-content: center;
+      }
+
+      .hapo-slide-button-link {
+        padding: 25px 60px;
+        -webkit-text-stroke: 1px $main_color;
+        @include fontUTM(bold, 18px, $main_color);
+        line-height: 3px;
+      }
+    }
+  }
+
+  .block-messenger {
+    right: 6%;
+    bottom: 75px;
+
+    .messenger {
+      width: 45px;
+      height: 45px;
+      right: 4%;
+
+      .icon-mes {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  }
+
+  .hapo-course-all {
+    margin-top: -100px;
+
+    .hapo-course-link {
+      a {
+        @include fontUTM(bold, 28px, #90ab26);
+
+        &:hover {
+          font-size: 30px;
+        }
+
+        img {
+          width: 31px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
+  .hapo-course {
+    .hapo-course-all {
+      padding: 0 40px;
+    }
+
+    .hapo-course-item {
+      margin-left: 0;
+      margin-bottom: 30px;
+
+      .hapo-course-header {
+        padding: 10%;
+        height: 200px;
+      }
+
+      .hapo-item-css {
+        padding: 15%;
+      }
+
+      .card-title {
+        font: normal bold 20px/25px UTM;
+        letter-spacing: -0.05em;
+        color: $color_link;
+        -webkit-text-stroke: 1px $color_link;
+      }
+
+      .card-text {
+        @include fontUTM(bold, 14px, #505353);
+      }
+
+      .hapo-courses-btn {
+        padding: 5% 12%;
+        font: normal bold 18px/22px UTM;
+      }
+    }
+  }
+
+  .hapo-courses-other {
+    margin: 50px 0;
+
+    .hapo-item-css,
+    .hapo-item-ruby,
+    .hapo-item-java {
+      padding: 30px !important;
+    }
+
+    p {
+      @include fontUTM(bold, 40px, $color_txt);
+    }
+  }
+
+  .hapo-wrap-inf {
+    .hapo-inf-content {
+      padding: 45px 0;
+
+      .hapo-inf-heading {
+        top: 15px;
+        font: normal bold 40px/40px UTM;
+      }
+
+      .hapo-content {
+        top: 25px;
+      }
+
+      .hapo-inf-topleft {
+        margin-top: 25px;
+      }
+
+      .hapo-inf-image-md {
+        transform: scale(1);
+        top: 0;
+        right: 0;
+      }
+
+      .hapo-content li {
+        margin-bottom: 20px;
+      }
+
+      .hapo-inf-content {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .hapo-wrap-learn {
+    .hapo-content-learn {
+      @include fontUTM(bold, 23px, $main_color);
+    }
+
+    .btn-learn-link {
+      @include fontUTM(bold, 18px, #90ab26);
+    }
+  }
+
+  .hapo-feedback {
+    .hapo-title-feedback {
+      .hapo-txt-title {
+        font-size: 40px;
+      }
+
+      hr {
+        width: 40%;
+      }
+
+      .hapo-txt-decs {
+        line-height: 22px;
+        letter-spacing: -0.01em;
+        @include fontUTM(normal, 19px, #505353);
+      }
+    }
+
+    .hapo-element-cmt {
+      width: 95%;
+      background: url("../storage/images/Union.png") no-repeat;
+      background-size: 100% 95%;
+    }
+
+    .hapo-img-account {
+      margin-left: 30px;
+    }
+
+    .controls-top {
+      top: -195px;
+
+      .prev {
+        margin-left: 0;
+      }
+
+      .next {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .hapo-wrap-statistic {
+    .hapo-statistic-header p {
+      margin: 25px auto;
+      @include fontUTM(bold, 40px, $color_txt);
+      letter-spacing: -0.02em;
+    }
+
+    .hapo-statistic-body {
+      .hapo-statistic-data {
+        margin: 30px auto;
+        color: $color_link;
+      }
+    }
+  }
+
+  footer {
+    padding: 40px;
+
+    .container-content {
+      padding: 30px;
+    }
+
+    .hapo-footer-logo p {
+      margin-left: 0;
+      @include fontUTM(normal, 14px, $main_color);
+    }
+
+    .hapo-nav-footer li {
+      margin-bottom: 24px;
+    }
+
+    .hapo-footer-contact {
+      top: -25px;
+    }
+
+    .hapo-nav-footer-icon {
+      margin-top: 0;
+
+      a {
+        margin: auto 4px;
+        width: 35px;
+        height: 35px;
+      }
+
+      .img-facebook {
+        width: 13px;
+        height: 23px;
+      }
+
+      .img-call {
+        width: 20px;
+        height: 20px;
+      }
+
+      .icon-mail {
+        font-size: large;
+      }
+    }
+  }
+
+  .color-fix {
+    height: 320px;
+  }
+}

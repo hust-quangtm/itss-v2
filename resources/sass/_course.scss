@@ -1,0 +1,516 @@
+.filter {
+  .filter-icon {
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    background-color: $main_color;
+  }
+
+  .filter-search {
+    font: bold 16px/22px Open Sans;
+
+    .text-search {
+      background: #ffffff;
+      border: 1px solid #c4c4c4;
+      border-radius: 5px;
+      padding: 10px 28px;
+      color: #bababa;
+      font: normal bold 16px/22px Open Sans;
+    }
+
+    i {
+      position: absolute;
+      right: 60%;
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 23px;
+      color: $color_title;
+    }
+
+    .btn-search {
+      background-color: $color_link;
+      @include fontUTM(bold, 15px, $main_color);
+    }
+
+    .fa {
+      font-size: 20px;
+    }
+
+    .hapo-filter-seach {
+      padding: 8px 20px;
+      color: $main_color;
+      background-color: $color_link;
+    }
+
+    .hapo-filter {
+      @extend .filter-icon;
+    }
+
+    .radio-toolbar input[type="radio"] {
+      display: none;
+    }
+
+    .radio-toolbar label {
+      margin: 0 10px;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 2px;
+      background-color: #e5e6e7;
+      @include fontUTM(bold, 18px, $color_title);
+    }
+
+    .radio-toolbar input[type="radio"]:checked + label {
+      background: #b2d235;
+      color: $main_color;
+    }
+  }
+}
+
+.wrap-all-course {
+  background: #f2f2f2;
+
+  .wrap-course-image {
+    width: 89px;
+    height: 89px;
+    border-radius: 50%;
+  }
+
+  .card {
+    .card-title-course {
+      -webkit-text-stroke: 0.8px;
+      @include fontUTM(bold, 25px, $color_title);
+    }
+
+    .card-link-more {
+      font: bold 22px/25px UTM;
+      color: $main_color;
+      background-color: $color_link;
+      border-radius: 40px;
+    }
+
+    .card-text-course {
+      font: 18px/25px UTM;
+      color: $color_title;
+      height: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-text-stroke: 0.3px;
+    }
+
+    .wrap-learners,
+    .wrap-lessons,
+    .wrap-quizes {
+      .card-link {
+        -webkit-text-stroke: 0.4px;
+        @include fontUTM(bold, 25px, $color_title);
+      }
+
+      p {
+        font: bold 30px/37px UTM;
+        color: $color_link;
+      }
+    }
+  }
+}
+
+.hapo-detail {
+  background: #f2f2f2;
+}
+
+.hapo-detail-course-header {
+  height: 439px;
+  width: 665px;
+  background: #3f6185;
+  border-radius: 10px;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+}
+
+.hapo-detail-content-left {
+  background-color: $main_color;
+  border-radius: 10px;
+
+  .hapo-nav-detail {
+    border-bottom: 1px solid #e2e0e0;
+  }
+
+  .nav-tabs {
+    width: 70%;
+
+    .nav-item {
+      @include fontUTM(bold, 20px, $color_title);
+      &:hover {
+        color: $color_link;
+      }
+    }
+
+    .nav-link.active {
+      color: $main_color;
+      background-color: $color_link;
+    }
+  }
+
+  .hapo-nav-tabs {
+    width: 80%;
+  }
+
+  .hapo-header-form {
+    position: relative;
+
+    .hapo-search {
+      background: #ffffff;
+      border: 1px solid #c4c4c4;
+      border-radius: 5px;
+      padding-left: 10px;
+      color: #bababa;
+      font: normal bold 16px/22px Open Sans;
+    }
+
+    i {
+      position: absolute;
+      right: 30%;
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 23px;
+      color: $color_title;
+    }
+
+    .btn-search {
+      background-color: $color_link;
+      @include fontUTM(bold, 15px, $main_color);
+    }
+  }
+
+  .course-lesson-detail {
+    .border-top-bot {
+      border-top: 1px solid #e2e0e0;
+      border-bottom: 1px solid #e2e0e0;
+    }
+
+    p {
+      @include fontUTM(bold, 18px, $color_title);
+    }
+
+    a {
+      @include fontUTM(bold, 18px, $color_link);
+    }
+  }
+
+  .hapo-lesson-description,
+  .hapo-lesson-requirement,
+  .tab-pane,
+  .leave-commnent {
+    .hapo-description-header,
+    .hapo-requirement-header,
+    .hapo-teacher-header,
+    .hapo-program-header,
+    .hapo-review-header,
+    .hapo-review-leave-comment {
+      -webkit-text-stroke: 0.5px;
+      @include fontUTM(bold, 23px, $color_title);
+    }
+
+    .hapo-lesson-contentdes,
+    .hapo-lesson-requicontent {
+      -webkit-text-stroke: 0.05px;
+      @include fontUTM(normal, 18px, #949292);
+    }
+  }
+}
+
+.hapo-courses-btn,
+.hapo-lesson-btn {
+  font: normal bold 20px/43px UTM;
+  background: #b2d235;
+  border-radius: 22px;
+  color: white;
+  margin: 0;
+  box-shadow: inset 0 1.5px 2px #6f8710;
+  -webkit-text-stroke-width: 1px;
+}
+
+.btn-learn {
+  background-color: $color_link;
+  box-shadow: inset 0 1.5px 2px #6f8710;
+  border-radius: 22px;
+  @include fontUTM(bold, 15px, $main_color);
+}
+
+.course-info {
+  @include fontUTM(normal, 25px, #bdb9b9);
+
+  .hapo-description {
+    background-color: $main_color;
+    height: 439px;
+
+    .hapo-description-header {
+      -webkit-text-stroke: 0.5px;
+      @include fontUTM(bold, 25px, $color_title);
+    }
+
+    hr {
+      background-color: $color_link;
+    }
+  }
+
+  .course-info-text {
+    background-color: $main_color;
+    padding: 20px;
+    border-top: 1px solid #e2e0e0;
+    border-bottom: 1px solid #e2e0e0;
+    color: $color_title;
+
+    .hapo-text {
+      -webkit-text-stroke: 0.8px;
+    }
+  }
+
+  .course-info-tittle {
+    background-color: #b2d235;
+    padding: 20px;
+    @include fontUTM(bold, 25px, $main_color);
+  }
+
+  .btn-learn {
+    font-size: 18px;
+  }
+
+  .other-list {
+    background-color: $main_color;
+
+    .other-list-item {
+      border-top: 1px solid #e2e0e0;
+      border-bottom: 1px solid #e2e0e0;
+      -webkit-text-stroke: 0.3px $color_title;
+      @include fontUTM(normal, 16px, $color_title);
+
+      a {
+        color: $color_title;
+        -webkit-text-stroke: 0.5px $color_title;
+
+        &:hover {
+          -webkit-text-stroke: 0.8px $color_link;
+          text-decoration: none;
+          color: $color_link;
+        }
+      }
+    }
+  }
+}
+
+.hapo-teacher-body {
+  .hapo-teacher-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .hapo-teacher-name {
+    text-transform: capitalize;
+    -webkit-text-stroke: 0.4px;
+    @include fontUTM(bold, 22px, $color_title);
+  }
+
+  .hapo-teacher-experience {
+    @include fontUTM(normal, 14px, #bdb9d9);
+  }
+
+  .hapo-teacher-contact {
+    .fab {
+      margin: 0 3px;
+      border-radius: 50%;
+      border: 0.5px solid #f44336;
+      box-sizing: border-box;
+    }
+
+    .fa-google-plus-g {
+      color: #f44336;
+      padding: 3px;
+    }
+
+    .fa-facebook-f {
+      color: #1976d2;
+      padding: 4px 8px;
+    }
+
+    .fa-slack {
+      color: $color_link;
+      padding: 4px 5px;
+    }
+  }
+}
+
+.hapo-teacher-description {
+  font: 18px/26px UTM;
+  color: #949292;
+  letter-spacing: -0.02em;
+  -webkit-text-stroke: 0.04px;
+}
+
+.hapo-program-lesson {
+  @include fontUTM(normal, 14px, #bdb9d9);
+}
+
+.hapo-program-name {
+  -webkit-text-stroke: 0.5px;
+  @include fontUTM(bold, 18px, $color_title);
+}
+
+.hapo-review-bodyleft {
+  background: $color_title;
+  padding: 20px;
+  width: 40%;
+
+  .hapo-review-star {
+    -webkit-text-stroke: 0.5px;
+    @include fontUTM(bold, 60px, $main_color);
+  }
+
+  .fa-star {
+    color: #ffd567;
+    font-size: 25px;
+  }
+
+  .hapo-review-rating {
+    @include fontUTM(normal, 16px, $main_color);
+  }
+}
+
+.hapo-review-bodyright {
+  border: 1px solid #dfdfdf;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 60%;
+  -webkit-text-stroke: 0.5px;
+  @include fontUTM(bold, 16px, $color_title);
+
+  .progress {
+    height: 5px;
+
+    .progress-bar {
+      background: $color_link;
+      width: 100%;
+    }
+  }
+}
+
+.hapo-review-content {
+  .hapo-review-showall {
+    -webkit-text-stroke: 1px;
+    @include fontUTM(bold, 18px, $color_title);
+  }
+
+  .hapo-review-content-header {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .hapo-review-content-username {
+      text-transform: capitalize;
+      -webkit-text-stroke: 1px;
+      @include fontUTM(bold, 18px, $color_title);
+    }
+
+    .hapo-review-content-rating {
+      color: $color_link;
+    }
+
+    .hapo-review-content-time {
+      @include fontUTM(normal, 14px, #bdb9d9);
+    }
+  }
+
+  .hapo-review-content-body {
+    -webkit-text-stroke: 0.05px;
+    @include fontUTM(normal, 18px, #949292);
+
+    .hapo-content-review {
+      word-break: break-word;
+    }
+  }
+}
+
+.leave-commnent {
+  textarea {
+    -webkit-text-stroke: 0.1px;
+    @include fontUTM(normal, 18px, #747474);
+  }
+}
+
+.rating {
+  float: left;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  width: 1em;
+  padding: 0 0.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 200%;
+  line-height: 1.2;
+  color: #ddd;
+}
+
+.rating:not(:checked) > label:before {
+  content: "★ ";
+}
+
+.rating > input:checked ~ label {
+  color: #f70;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: gold;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+}
+
+.rating > label:active {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.hapo-review-drop {
+  position: absolute;
+  margin-top: -110px;
+  right: 0;
+}
+
+.hapo-form-review-hidden {
+  display: none;
+}
+
+.cancelLesson {
+  box-shadow: inset 0 1.5px 2px #6a6c8b;
+  border-radius: 22px;
+  @include fontUTM(bold, 15px, $main_color);
+}
+
+.badge-custom {
+  color: #1976d2;
+  cursor: pointer;
+  &:hover {
+    background-color: #005db9;
+    color: white;
+  }
+}

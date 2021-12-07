@@ -19,7 +19,7 @@
                             <source src="{{ asset('storage/images/php-intro.mp4') }}">
                         </video>
                     </div>
-                    <div class="hapo-detail-content-left mt-3 mb-5">
+                    {{-- <div class="hapo-detail-content-left mt-3 mb-5">
                         <nav class="hapo-nav-detail">
                             <div class="nav nav-tabs nav-fill hapo-nav-tabs" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Description</a>
@@ -279,7 +279,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-4 course-info h-50 ml-5 w-100 px-0">
                     <div class="hapo-data-lesson-detail">

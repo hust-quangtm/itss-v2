@@ -13,13 +13,13 @@
             <div class="row pt-5">
                 <div class="col-7 p-0">
                     <div class="hapo-detail-course-header d-flex justify-content-center align-content-center">
-                        {{-- <img src="{{ asset('storage/images/html_css.png') }} " alt="" class="img-fluid pt-3 px-md-5 py-md-5 mt-md-0"> --}}
+                        <img src="{{ asset('storage/images/allcourse.png') }} " alt="" class="img-fluid pt-3 px-md-5 py-md-5 mt-md-0">
                     </div>
                     <div class="hapo-detail-content-left mt-3 mb-5">
                         <nav class="hapo-nav-detail">
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
-                                <a class="nav-item nav-link" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Teacher</a>
+                                <a class="nav-item nav-link" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Examination</a>
                                 {{-- <a class="nav-item nav-link" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a> --}}
                             </div>
                         </nav>
@@ -90,9 +90,9 @@
                             </div>
                             <div class="tab-pane fade" id="navTeacher" role="tabpanel" aria-labelledby="navTeacherTab">
                                 <h4 class="hapo-teacher-header mt-2 p-3">
-                                    Main Teachers
+                                    Course's Examination
                                 </h4>
-                                <div class="hapo-teacher-body d-flex align-items-center ml-2 mt-4 p-3">
+                                {{-- <div class="hapo-teacher-body d-flex align-items-center ml-2 mt-4 p-3">
                                      <div class="hapo-teacher-image">
                                          <img src="{{ asset('storage/images/teacher.png') }} " alt="">
                                      </div>
@@ -110,7 +110,43 @@
                                      <p class="text-justify">
                                         {{ $course->teacher->description }}
                                      </p>
-                                 </div>
+                                 </div> --}}
+                                 <div class="course-lesson-detail" >
+                                    <table class="table">
+                                        <tbody id="myTable">
+                                            {{-- @if (count($lessonCourse) > 0) --}}
+                                                {{-- @foreach ($lessonCourse as $key => $item) --}}
+                                                    <tr>
+                                                        <td class="text-justify d-flex justify-content-between">
+                                                            {{-- @if ($course->check_user_course)
+                                                                @if ($item->check_user_lesson) --}}
+                                                                <p class="course-other-item">1. First Examination</p>
+                                                                <a href="{{ route('test', $course->id) }}"><button class="btn btn-light btn-learn">Do Now</button></a>
+                                                                {{-- @else
+                                                                    <p class="course-other-item">{{ $lessonCourse->firstItem() + $key . ".  " . $item->lesson_name }}</p>
+                                                                    <form action="{{ route('lesson.user.store', $item->id ) }}" method="post" class="text-center">
+                                                                        @csrf
+                                                                        <input type="submit" value="Learn" class="btn btn-learn">
+                                                                    </form>
+                                                                @endif
+                                                            @else
+                                                                <p class="course-other-item">{{ $lessonCourse->firstItem() + $key . ".  " . $item->lesson_name }}</p>
+                                                            @endif --}}
+                                                        </td>
+                                                    </tr>
+                                                {{-- @endforeach --}}
+                                            {{-- @else --}}
+                                                {{-- <tr>
+                                                    <td class="text-center"> "Not found lesson !!!"</td>
+                                                </tr> --}}
+                                            {{-- @endif --}}
+
+                                        </tbody>
+                                    </table>
+                                    <div class="pagination col-12 mt-5 d-flex justify-content-end mt-4 ">
+                                        {{ $lessonCourse->appends($_GET)->links('pagination') }}
+                                    </div>
+                                </div>
                                  <hr>
                             </div>
                             <div class="tab-pane fade" id="navReview" role="tabpanel" aria-labelledby="navReviewTab">

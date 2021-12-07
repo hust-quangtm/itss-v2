@@ -121,4 +121,9 @@ class CourseController extends Controller
         ->FindByTag($id)->paginate(config('variable.pagination'));
         return view('course', compact('courses', 'teachers', 'tags'));
     }
+
+    public function doTest()
+    {
+        return view('test');
+    }
 }

@@ -36,6 +36,8 @@ Route::post('/review/{id}', 'User\CourseController@update')->name('review.update
 
 Route::get('/course/search-tag/{id}', 'User\CourseController@searchByTag')->name('tag.search');
 
+Route::get('/course/{id}/test', 'User\CourseController@doTest')->name('test');
+
 //lesson
 Route::get('/course/lesson-detail/{id}', 'User\LessonController@show')->name('lesson.detail');
 

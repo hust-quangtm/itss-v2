@@ -3,7 +3,7 @@
 @section('content')
 <section class="container-fluid hapo-wrap-banner">
     <div class="hapo-slide-dect">
-        <div class="hapo-txt">
+        {{-- <div class="hapo-txt">
             Learn Anytime, Anywhere
         </div>
         <div class="hapo-txt-title">
@@ -14,7 +14,7 @@
         </div>
         <a href=" {{ route('course.all') }} " class="hapo-slide-button">
             <span class="hapo-slide-button-link" >Start Learning Now!</span>
-        </a>
+        </a> --}}
     </div>
     <div class="block-messenger">
         <div class="toggle-class">
@@ -59,29 +59,12 @@
             </div>
             @endforeach
         </div>
-        {{-- <div class="hapo-course hapo-courses-other col-12 p-0">
-            <p class="text-center"><span class="hapo-boder-title-button">Other courses</span></p>
-        </div>
-        <div class="hapo-course w-100 mt-md-5 d-md-flex flex-column flex-md-row justify-content-center">
-            @foreach ($courseOld as $item)
-            <div class="card hapo-course-item col-md-4 col-12 p-0" >
-                <img class="card-img-top hapo-course-header img-fluid mt-xl-3 pt-3 px-md-5 py-md-5 mt-md-0 " src="{{ asset('storage/images/html_css.png') }} " alt="Card image cap">
-                <div class="card-body pt-4 pb-lg-4 pb-0 px-0 ">
-                    <h5 class="card-title text-center pt-lg-2 mb-xl-3">{{ $item->course_name }} </h5>
-                    <p class="card-text text-center p-0 m-auto pl-3 pr-3">{{ $item->description }}</p>
-                    <div class="text-center pb-lg-0 pb-md-2 pb-3 m-3">
-                        <a href=" {{ route('course.detail', $item->id) }} " class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2 ">Take This Course</a>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div> --}}
         <div class="hapo-course-link all-courses col-12 text-center d-flex align-items-center justify-content-center">
             <a href=" {{ route('course.all') }} " class="hapo-courses-link-all">View All Other Courses <img alt="&gt;&gt;&gt;" src="{{ asset('storage/images/direct_icon.png') }}"></a>
         </div>
     </div>
 </section>
-<section class="hapo-wrap-inf container-fluid">
+{{-- <section class="hapo-wrap-inf container-fluid">
     <img class="hapo-inf-topleft" src="{{ asset('storage/images/mbwhy.png') }}">
     <div class="container hapo-inf-content">
         <span class="hapo-inf-heading text-fix col-sm-12 col-1 offset-sm-0 offset-4">Why HapoLearn?</span>
@@ -111,8 +94,8 @@
             <img class="col-xl-6 col-md-5 hapo-inf-right pr-xl-0 pl-xl-5 hapo-inf-image-md" src="{{ asset('storage/images/image_inf_2.png') }}" >
         </div>
     </div>
-</section>
-<section class="hapo-feedback container pb-lg-4">
+</section> --}}
+{{-- <section class="hapo-feedback container pb-lg-4">
     <div class="hapo-title-feedback mt-5 pt-lg-5 text-center">
         <span class="hapo-txt-title">Feedback</span>
         <hr/>
@@ -157,7 +140,7 @@
       <a class="btn-sm prev"><i class="fas fa-chevron-left"></i></a>
       <a class="btn-sm next"><i class="fas fa-chevron-right"></i></a>
     </div>
-</section>
+</section> --}}
 <section class="hapo-wrap-learn container-fluid">
     <div class="container hapo-learn-content d-flex  flex-column justify-content-center align-items-center p-0 m-auto">
         <div class="hapo-content-learn text-center">

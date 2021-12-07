@@ -14,7 +14,10 @@
             <div class="row pt-5">
                 <div class="col-7 p-0">
                     <div class="hapo-detail-course-header d-flex justify-content-center">
-                        <img src="{{ asset('storage/images/'.$lesson->course->image) }} " alt="">
+                        {{-- <img src="{{ asset('storage/images/'.$lesson->course->image) }} " alt=""> --}}
+                        <video controls width="665" height="439">
+                            <source src="{{ asset('storage/images/php-intro.mp4') }}">
+                        </video>
                     </div>
                     <div class="hapo-detail-content-left mt-3 mb-5">
                         <nav class="hapo-nav-detail">

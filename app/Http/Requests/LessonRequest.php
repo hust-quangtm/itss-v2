@@ -27,7 +27,7 @@ class LessonRequest extends FormRequest
             'lesson_name'   => 'required|min:4|max:50',
             'time'          => 'required',
             'description'   => 'required|max:255',
-            'requirement'   => 'required|max:255',
+            // 'requirement'   => 'required|max:255',
         ];
     }
 }

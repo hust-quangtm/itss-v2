@@ -22,7 +22,7 @@
                         <div class="hapo-filter filter-show mt-2 p-4 mx-0 row ">
                             <div class="hapo-filter-title col-1 p-0">Filter By: </div>
                             <div class="hapo-filte-content col-11 p-0 d-flex flex-wrap">
-                                <div class="radio-toolbar d-flex align-content-center ">
+                                {{-- <div class="radio-toolbar d-flex align-content-center ">
                                    <div>
                                         <input type="radio" id="newest" name="searched" checked value="1">
                                         <label for="newest">Newest</label>
@@ -60,7 +60,7 @@
                                         <option value="1">Most Lesson</option>
                                         <option value="2">Least Lesson</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="input-group col-2 p-0 mb-3 mx-2">
                                     <select class="custom-select" name="tag" id="tag">
                                         <option valute="">Tag</option>
@@ -69,13 +69,13 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="input-group col-2 p-0 mb-3 mx-2">
+                                {{-- <div class="input-group col-2 p-0 mb-3 mx-2">
                                     <select class="custom-select" name="review" id="review">
                                         <option valute="">Review</option>
                                         <option value="1">Most Review</option>
                                         <option value="2">Least Review</option>
                                     </select>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </form>

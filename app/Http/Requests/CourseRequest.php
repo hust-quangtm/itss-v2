@@ -32,7 +32,7 @@ class CourseRequest extends FormRequest
                 return [
                     'course_name'   => 'required|min:4|max:32',
                     'description'   => 'required|max:255',
-                    'requirement'   => 'required|max:255',
+                    // 'requirement'   => 'required|max:255',
                     'image'         => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
                     'price'         => 'required|numeric|digits_between:1,10',
                 ];
@@ -41,7 +41,7 @@ class CourseRequest extends FormRequest
                 return [
                     'course_name'   => 'required|min:4|max:32',
                     'description'   => 'required|max:255',
-                    'requirement'   => 'required|max:255',
+                    // 'requirement'   => 'required|max:255',
                     'price'         => 'required|numeric|digits_between:1,10',
                 ];
 

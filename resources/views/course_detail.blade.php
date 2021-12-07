@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('title','Course Detail')
 @section('content')
-{{-- <div class="head-detail container-fluid mt-2 d-flex align-items-center">
+<div class="head-detail container-fluid mt-2 d-flex align-items-center">
     <ul class="pl-5 d-flex align-content-center justify-content-center">
         <li class="mx-2"><a href=" {{ route('home') }} ">Home</a></li> >
         <li class="mx-2"><a href=" {{ route('course.all') }} ">All courses</a></li> >
         <li class="mx-2"><a href="">Courses detail</a></li>
     </ul>
-</div> --}}
+</div>
     <div class="hapo-detail">
         <div class="container">
             <div class="row pt-5">
@@ -20,7 +20,7 @@
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
                                 <a class="nav-item nav-link" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Teacher</a>
-                                <a class="nav-item nav-link" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a>
+                                {{-- <a class="nav-item nav-link" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a> --}}
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">

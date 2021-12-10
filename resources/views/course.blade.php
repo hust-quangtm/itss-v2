@@ -7,20 +7,20 @@
                 <div class="filter-search py-2">
                     <form action="{{ Route('course.search') }}" method="GET">
                         <div class="d-flex position-relative">
-                            <div class="filter-icon filter-toggle col-xl-1 d-flex align-items-center py-2 mr-2">
+                            {{-- <div class="filter-icon filter-toggle col-xl-1 d-flex align-items-center py-2 mr-2">
                                 <img src="{{ asset('storage/images/filter.png') }}" alt="Filter">
                                 <span class="filter-text ml-xl-1">Filter</span>
+                            </div> --}}
+                            <div class="mx-3">
+                                <input type="submit" class="btn btn-light hapo-filter-seach" value="Seach">
                             </div>
                            <div>
-                                <input type="text" class="text-search" placeholder="Search..." name="name" value="{{ request('name') }}" size="30">
+                                <input type="text" class="text-search" placeholder="Search by course name" name="name" value="{{ request('name') }}" size="30">
                                 <i class="fa fa-search"></i>
-                           </div>
-                           <div class="mx-3">
-                               <input type="submit" class="btn btn-light hapo-filter-seach" value="Seach">
                            </div>
                         </div>
                         <div class="hapo-filter filter-show mt-2 p-4 mx-0 row ">
-                            <div class="hapo-filter-title col-1 p-0">Filter By: </div>
+                            {{-- <div class="hapo-filter-title col-1 p-0">Filter By: </div> --}}
                             <div class="hapo-filte-content col-11 p-0 d-flex flex-wrap">
                                 {{-- <div class="radio-toolbar d-flex align-content-center ">
                                    <div>

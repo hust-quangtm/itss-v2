@@ -114,33 +114,14 @@
                                  <div class="course-lesson-detail" >
                                     <table class="table">
                                         <tbody id="myTable">
-                                            {{-- @if (count($lessonCourse) > 0) --}}
-                                                {{-- @foreach ($lessonCourse as $key => $item) --}}
-                                                    <tr>
-                                                        <td class="text-justify d-flex justify-content-between">
-                                                            {{-- @if ($course->check_user_course)
-                                                                @if ($item->check_user_lesson) --}}
-                                                                <p class="course-other-item">1. First Examination</p>
-                                                                <a href="{{ route('test', $course->id) }}"><button class="btn btn-light btn-learn">Do Now</button></a>
-                                                                {{-- @else
-                                                                    <p class="course-other-item">{{ $lessonCourse->firstItem() + $key . ".  " . $item->lesson_name }}</p>
-                                                                    <form action="{{ route('lesson.user.store', $item->id ) }}" method="post" class="text-center">
-                                                                        @csrf
-                                                                        <input type="submit" value="Learn" class="btn btn-learn">
-                                                                    </form>
-                                                                @endif
-                                                            @else
-                                                                <p class="course-other-item">{{ $lessonCourse->firstItem() + $key . ".  " . $item->lesson_name }}</p>
-                                                            @endif --}}
-                                                        </td>
-                                                    </tr>
-                                                {{-- @endforeach --}}
-                                            {{-- @else --}}
-                                                {{-- <tr>
-                                                    <td class="text-center"> "Not found lesson !!!"</td>
-                                                </tr> --}}
-                                            {{-- @endif --}}
-
+                                            @foreach ($tests as $key => $item)
+                                                <tr>
+                                                    <td class="text-justify d-flex justify-content-between">
+                                                        <p class="course-other-item">{{$key + 1}}. {{$item->test_name}}</p>
+                                                        <a href="{{ route('test', [ $course->id, $item->id]) }}"><button class="btn btn-light btn-learn">Do Now</button></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                     <div class="pagination col-12 mt-5 d-flex justify-content-end mt-4 ">

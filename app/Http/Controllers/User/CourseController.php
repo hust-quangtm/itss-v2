@@ -10,6 +10,7 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Review;
 use App\Models\Tag;
+use App\Models\Test;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,7 @@ class CourseController extends Controller
      */
     public function show(Request $request, $id)
     {
+        $tests = Test::where('course_id', $id)->get();
         $otherCourses = Course::query()->OrderByStudents(Course::ORDER['most'])
         ->limit(config('variable.other_course'))
         ->get();
@@ -68,7 +70,7 @@ class CourseController extends Controller
             'one_star' => config('variable.one_star')
         ];
         return view('course_detail', compact(['course', 'lessonCourse', 'otherCourses', 'courReviews',
-        'ratingStar', 'tags']));
+        'ratingStar', 'tags', 'tests']));
     }
 
     public function search(Request $request)

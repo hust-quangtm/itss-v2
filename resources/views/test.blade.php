@@ -18,14 +18,14 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('client.test.store') }}">
+                    <form method="POST" action="{{ route('test.store', [$tests[0]->course_id, $tests[0]->id]) }}">
                         @csrf
-                        @foreach($categories as $category)
+                        @foreach($tests as $test)
                             <div class="card mb-3">
-                                <div class="card-header">{{ $category->name }}</div>
+                                <div class="card-header">{{ $test->test_name }}</div>
 
                                 <div class="card-body">
-                                    @foreach($category->categoryQuestions as $question)
+                                    @foreach($test->questions as $question)
                                         <div class="card @if(!$loop->last)mb-3 @endif">
                                             <div class="card-header">{{ $question->question_text }}</div>
 
@@ -65,5 +65,4 @@
         </div>
     </div>
 </div>
-@endsection
 @endsection

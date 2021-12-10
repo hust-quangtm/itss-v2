@@ -58,17 +58,6 @@
                                     </button>
                                 </div>
                             </form>
-                            <div class="hapo-login-hr d-flex align-items-center justify-content-center">
-                                <hr  width="37%" align="left" /><span class="">Login With</span><hr  width="37%" align="right" />
-                            </div>
-                            <div class="hapo-login-footer px-4 py-2 d-flex flex-column align-items-center justify-content-center">
-                                <a href="#" class="col-12 my-1 py-3 hapo-button-google-link d-flex justify-content-center align-items-center">
-                                    <i class="fab fa-google-plus-g" aria-hidden="true"> Google</i>
-                                </a>
-                                <a href="#" class="col-12 mt-1 mb-4 py-3 hapo-button-facebook-link d-flex justify-content-center align-items-center">
-                                    <i class="fab fa-facebook-f" aria-hidden="true"> Facebook</i>
-                                </a>
-                            </div>
                         </div>
                         <div class="tab-pane fade" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
                              <form class="hapo-form-login px-4 py-3" method="POST" action="{{ route('register') }}">

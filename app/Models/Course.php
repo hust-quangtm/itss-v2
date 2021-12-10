@@ -155,6 +155,7 @@ class Course extends Model
 
     public function scopeSearchFilter($query, $request)
     {
+        // dd($request->toArray());
         $querry = null;
 
         if ($request->tag != 0) {
@@ -220,7 +221,7 @@ class Course extends Model
         }
 
         if ($request->has('name')) {
-            $querry = $query->where('course_name', 'like', '%' . $request->name . '%');
+            $querry = Course::where('course_name', 'like', '%' . $request->name . '%');
         }
 
         if ($request->teacher) {

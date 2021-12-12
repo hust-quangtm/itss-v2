@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Review;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,5 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsersTableSeeder::class);
+        $this->call(TestSeeder::class);
+        $this->call(QuestionSeeder::class);
+        $this->call(OptionSeeder::class);
     }
 }

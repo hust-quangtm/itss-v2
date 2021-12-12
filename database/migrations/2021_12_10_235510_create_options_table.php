@@ -17,7 +17,7 @@ class CreateOptionsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('question_id');
             $table->string('option_text');
-            $table->integer('option_point');
+            $table->unsignedBigInteger('points');
             $table->foreign('question_id')->references('id')->on('questions')
                 ->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

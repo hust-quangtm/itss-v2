@@ -81,4 +81,9 @@ class User extends Authenticatable
         $createdAt = Carbon::parse($this->birth_day)->format('M d Y');
         return $createdAt;
     }
+
+    public function userResults()
+    {
+        return $this->hasMany(Result::class, 'user_id', 'id');
+    }
 }

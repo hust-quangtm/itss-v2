@@ -79,7 +79,7 @@
     }
 
     .btn-learn-link {
-      @include fontUTM(bold, 18px, #90ab26);
+      @include fontUTM(bold, 18px, #FF8A00);
     }
   }
 
@@ -375,7 +375,7 @@
 
     .hapo-course-link {
       a {
-        @include fontUTM(bold, 28px, #90ab26);
+        @include fontUTM(bold, 28px, #FF8A00);
 
         &:hover {
           font-size: 30px;
@@ -478,7 +478,7 @@
     }
 
     .btn-learn-link {
-      @include fontUTM(bold, 18px, #90ab26);
+      @include fontUTM(bold, 18px, #FF8A00);
     }
   }
 

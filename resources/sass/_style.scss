@@ -199,7 +199,7 @@ body {
       letter-spacing: -0.02em;
       text-shadow: 2px 0 1px;
       letter-spacing: -0.02em;
-      @include fontUTM(bold, 40px, #90ab26);
+      @include fontUTM(bold, 40px, #FF8A00);
 
       &:hover {
         text-decoration: none;
@@ -265,11 +265,11 @@ body {
 
     .hapo-courses-btn {
       font: normal bold 20px/43px UTM;
-      background: #b2d235;
-      border-radius: 22px;
+background: rgb(255,138,0);
+background: linear-gradient(90deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%, rgba(0,212,255,1) 100%);      border-radius: 22px;
       color: white;
       margin: 0;
-      box-shadow: inset 0 1.5px 2px #6f8710;
+      box-shadow: inset 0 1.5px 2px linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%);
       -webkit-text-stroke-width: 1px;
     }
   }
@@ -349,7 +349,7 @@ body {
     box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 35px;
     -webkit-text-stroke-width: 1px;
-    @include fontUTM(bold, 30px, #90ab26);
+    @include fontUTM(bold, 30px, #FF8A00);
     &:hover {
       opacity: 0.8;
     }
@@ -369,7 +369,7 @@ body {
       width: 30%;
       height: 6px;
       margin: 15px auto;
-      background-color: #b2d235;
+      background-color: linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%);
       border-radius: 3px;
     }
 
@@ -511,7 +511,7 @@ body {
   }
 
   .fa-times {
-    background-color: #b2d235;
+    background-color: linear-gradient(253.58deg, #FFC000 1.55%, #FF8A00 95.8%);
     width: 34px;
     height: 34px;
     font-size: 15px;
@@ -549,7 +549,7 @@ body {
       .hapo-register-linkbut {
         padding: 10px 60px;
         background-color: $color_link;
-        box-shadow: inset 0px 1.5px 2px #6f8710;
+        box-shadow: inset 0px 1.5px 2px #FFC000;
         border-radius: 22px;
         border-style: inherit;
         @include fontUTM(bold, 18px, $main_color);

@@ -42,6 +42,11 @@ Route::post('/course/{course_id}/test/{test_id}', 'User\TestController@store')->
 
 Route::get('/results/{result_id}', 'User\ResultController@show')->name('results.show');
 
+//cart 
+Route::get('/cart', 'User\CourseController@cart')->name('cart.detail');
+
+Route::post('/add-to-cart/{id}', 'User\CourseController@addToCart')->name('add.to.cart');
+
 //lesson
 Route::get('/course/lesson-detail/{id}', 'User\LessonController@show')->name('lesson.detail');
 

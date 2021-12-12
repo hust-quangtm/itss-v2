@@ -128,4 +128,44 @@ class CourseController extends Controller
     {
         return view('test');
     }
+
+    public function cart()
+    {
+        return view('cart');
+    }
+
+    public function addToCart($id)
+    {
+        $course = Course::findOrfail($id);
+        if(!$course) {
+            abort(404);
+        }
+        $cart = session()->get('cart');
+        // if cart is empty then this the first course
+        if(!$cart) {
+            $cart = [
+                    $id => [
+                        "name" => $course->name,
+                        "course_qty" => 1,
+                        "price" => $course->price,
+                        "image" => $course->image
+                    ]
+            ];
+            session()->put('cart', $cart);
+            return redirect()->back()->with('success', 'Bạn đã thêm khóa học thành công!');
+        }
+        // if cart not empty then check if this course exist then increment course_qty
+        if(isset($cart[$id])) {
+            return redirect()->back()->with('success', 'Bạn đã có khóa học này trong giỏ hàng của mình!');
+        }
+        // if course not exist in cart then add to cart with course_qty = 1
+        $cart[$id] = [
+            "name" => $course->name,
+            "course_qty" => 1,
+            "price" => $course->price,
+            "image" => $course->image
+        ];
+        session()->put('cart', $cart);
+        return redirect()->back()->with('success', 'Bạn đã thêm khóa học thành công!');
+    }
 }

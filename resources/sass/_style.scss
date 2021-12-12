@@ -44,7 +44,7 @@ body {
 }
 
 .hapo-wrap-banner {
-  background: url("../storage/images/hapo-learn-banner.png") no-repeat center/cover;
+  background: url("../storage/images/banner.png") no-repeat center/cover;
 
   .hapo-slide-dect {
     font-family: UTM;
@@ -456,15 +456,17 @@ background: linear-gradient(90deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%,
 }
 
 .hapo-wrap-statistic {
-  .hapo-statistic-header p {
+  background: rgb(255,138,0);
+  background: linear-gradient(270deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%);
+ .hapo-statistic-header p {
     border-radius: 3px;
     margin: 65px auto 25px auto;
     letter-spacing: -0.02em;
-    -webkit-text-stroke: 1px $color_txt;
-    @include fontUTM(bold, 80px, $color_txt);
+    -webkit-text-stroke: 1px #ffffff;
+    @include fontUTM(bold, 80px, #ffffff);
 
     &:after {
-      background-color: $color_link;
+      background-color: #ffffff;
       content: "";
       display: block;
       height: 6px;
@@ -475,9 +477,9 @@ background: linear-gradient(90deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%,
   }
 
   .hapo-statistic-body {
-    .hapo-statistic-name {
-      color: #505353;
-      -webkit-text-stroke: 1px #505353;
+     .hapo-statistic-name {
+      color: #ffffff;
+      -webkit-text-stroke: 1px #ffffff;
     }
 
     .hapo-statistic-name,
@@ -489,7 +491,7 @@ background: linear-gradient(90deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%,
 
     .hapo-statistic-data {
       margin: 30px auto 80px auto;
-      color: $color_link;
+      color: #ffffff;
     }
   }
 }

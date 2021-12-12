@@ -3,7 +3,7 @@
 @section('content')
 <div class="head-detail container-fluid mt-2 d-flex align-items-center">
     <ul class="pl-5 d-flex align-content-center justify-content-center">
-        <li class="mx-2"><a href=" {{ route('home') }} ">Home</a></li> >
+        <li class="mx-2"><a href=" {{ route('home') }} ">Trang  chủ</a></li> >
         <li class="mx-2"><a href=" {{ route('course.all') }} ">All courses</a></li> >
         <li class="mx-2"><a href=" {{ route('course.detail', $lesson->course->id) }} ">Courses detail</a></li> >
         <li class="mx-2"><a href="#">Lesson detail</a></li>

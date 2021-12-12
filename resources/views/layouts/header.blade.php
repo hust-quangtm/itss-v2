@@ -3,7 +3,9 @@
         <button class="navbar-toggler border-0 col-xs-2 px-2" type="button" data-toggle="collapse" data-target="#sibarNavbar" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars icon no-gutters"></span>
         </button>
-        <img src="{{url('storage/images/logo-5.png')}} " class="col-7 col-md-6 col-xl-3 ml-xl-1 m-auto ml-xl-2">
+        <div class="col-7 col-md-6 col-xl-3 justify-content-center">
+            <img src="{{url('storage/images/logo.png')}}">
+        </div>
         <div class="collapse collapse navbar-collapse col-6 col-md-12 col-xl-8 p-0 justify-content-xl-end justify-content-md-center"  id="sibarNavbar">
             <ul class="navbar-nav align-items-center hapo-nav-item">
                 <li class="nav-item  hapo-list-item">

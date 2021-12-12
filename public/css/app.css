@@ -69471,7 +69471,7 @@ body {
 }
 
 .hapo-wrap-banner {
-  background: url("../storage/images/hapo-learn-banner.png") no-repeat center/cover;
+  background: url("../storage/images/banner.png") no-repeat center/cover;
 }
 .hapo-wrap-banner .hapo-slide-dect {
   font-family: UTM;
@@ -69833,16 +69833,20 @@ body {
   margin-right: -8px;
 }
 
+.hapo-wrap-statistic {
+  background: #ff8a00;
+  background: linear-gradient(270deg, #ff8a00 0%, #ffc000 100%);
+}
 .hapo-wrap-statistic .hapo-statistic-header p {
   border-radius: 3px;
   margin: 65px auto 25px auto;
   letter-spacing: -0.02em;
-  -webkit-text-stroke: 1px #11114e;
+  -webkit-text-stroke: 1px #ffffff;
   font: bold 80px UTM;
-  color: #11114e;
+  color: #ffffff;
 }
 .hapo-wrap-statistic .hapo-statistic-header p:after {
-  background-color: #FF8A00;
+  background-color: #ffffff;
   content: "";
   display: block;
   height: 6px;
@@ -69851,8 +69855,8 @@ body {
   border-radius: 3px;
 }
 .hapo-wrap-statistic .hapo-statistic-body .hapo-statistic-name {
-  color: #505353;
-  -webkit-text-stroke: 1px #505353;
+  color: #ffffff;
+  -webkit-text-stroke: 1px #ffffff;
 }
 .hapo-wrap-statistic .hapo-statistic-body .hapo-statistic-name,
 .hapo-wrap-statistic .hapo-statistic-body .hapo-statistic-data {
@@ -69862,7 +69866,7 @@ body {
 }
 .hapo-wrap-statistic .hapo-statistic-body .hapo-statistic-data {
   margin: 30px auto 80px auto;
-  color: #FF8A00;
+  color: #ffffff;
 }
 
 .modal .modal-dialog {

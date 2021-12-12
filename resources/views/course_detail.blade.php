@@ -3,7 +3,7 @@
 @section('content')
 <div class="head-detail container-fluid mt-2 d-flex align-items-center">
     <ul class="pl-5 d-flex align-content-center justify-content-center">
-        <li class="mx-2"><a href=" {{ route('home') }} ">Home</a></li> >
+        <li class="mx-2"><a href=" {{ route('home') }} ">Trang  chủ</a></li> >
         <li class="mx-2"><a href=" {{ route('course.all') }} ">All courses</a></li> >
         <li class="mx-2"><a href="">Courses detail</a></li>
     </ul>
@@ -36,15 +36,15 @@
                                     <div class="text-center pb-lg-0 pb-md-2 pb-3 m-3">
                                         @if ($course->check_user_course)
                                             <div class="w-100 text-center">
-                                                <a href="{{ route('course.user.destroy', $course->id) }} " class="btn btn-light hapo-lesson-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Are you sure you want to leave this course?');" >Leave this Course</a>
+                                                <a href="{{ route('course.user.destroy', $course->id) }} " class="btn btn-light hapo-lesson-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Bạn chắn chắn muốn rời khỏi khóa học này chứ?');" >Rời khóa học</a>
                                             </div>
                                         @else
                                             <form action="{{ route('course.user.store', $course->id) }}" method="post" class="text-center">
                                                 @csrf
                                                 @if (Auth::user())
-                                                    <input type="submit" value="Take This Course" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Take This Course?');">
+                                                    <input type="submit" value="Thêm khóa học" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Thêm vào giỏ hàng?');">
                                                 @else
-                                                    <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Take This Course</a>
+                                                    <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Thêm vào giỏ hàng</a>
                                                     <input type="text" hidden value="{{ $course->id }}" class="idDirect">
                                                 @endif
                                             </form>

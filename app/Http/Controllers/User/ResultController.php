@@ -31,4 +31,19 @@ class ResultController extends Controller
 
         return view('result', compact('result', 'tests'));
     }
+
+    public function resultUser()
+    {
+        $tests = [];
+        $results = Result::whereHas('user', function ($query) {
+            $query->whereId(auth()->id());
+        })->get();
+
+        foreach ($results as  $result) {
+            $test = Test::where('id', $result->test_id)->get();
+            array_push($tests, $test);
+        }
+
+        return view('user-result', compact('results', 'tests'));
+    }
 }

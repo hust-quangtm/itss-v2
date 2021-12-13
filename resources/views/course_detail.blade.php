@@ -18,8 +18,10 @@
                     <div class="hapo-detail-content-left mt-3 mb-5">
                         <nav class="hapo-nav-detail">
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
-                                <a class="nav-item nav-link" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Examination</a>
+                                <a class="nav-item nav-link active col-4" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
+                                @if($course->check_user_course)
+                                    <a class="nav-item nav-link col-4" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Examination</a>
+                                @endif
                                 {{-- <a class="nav-item nav-link" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a> --}}
                             </div>
                         </nav>
@@ -89,29 +91,13 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="navTeacher" role="tabpanel" aria-labelledby="navTeacherTab">
-                                <h4 class="hapo-teacher-header mt-2 p-3">
-                                    Course's Examination
-                                </h4>
-                                {{-- <div class="hapo-teacher-body d-flex align-items-center ml-2 mt-4 p-3">
-                                     <div class="hapo-teacher-image">
-                                         <img src="{{ asset('storage/images/teacher.png') }} " alt="">
-                                     </div>
-                                     <div class="hapo-teacher-content ml-3 d-flex flex-column ">
-                                         <span class="hapo-teacher-name">{{ $course->teacher->name }} </span>
-                                         <span class="hapo-teacher-experience">Second Year Teacher</span>
-                                         <span class="hapo-teacher-contact mt-2">
-                                            <a href="#"><i class="fab fa-google-plus-g"></i></a>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-slack"></i></a>
-                                         </span>
-                                     </div>
-                                 </div>
-                                 <div class="hapo-teacher-description  p-3">
-                                     <p class="text-justify">
-                                        {{ $course->teacher->description }}
-                                     </p>
-                                 </div> --}}
-                                 <div class="course-lesson-detail" >
+                                <div class="d-flex flex-row">
+                                    <h4 class="hapo-teacher-header mt-2 p-3 col-10">
+                                        Course's Examination
+                                    </h4>
+                                    <a href="{{ route('test.result', $course->id) }}" class="btn btn-learn mt-4 col-2 h-25">Your Result</a>
+                                </div>
+                                <div class="course-lesson-detail" >
                                     <table class="table">
                                         <tbody id="myTable">
                                             @foreach ($tests as $key => $item)

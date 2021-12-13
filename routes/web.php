@@ -42,6 +42,8 @@ Route::post('/course/{course_id}/test/{test_id}', 'User\TestController@store')->
 
 Route::get('/results/{result_id}', 'User\ResultController@show')->name('results.show');
 
+Route::get('/course/{id}/your-result', 'User\ResultController@resultUser')->name('test.result');
+
 //lesson
 Route::get('/course/lesson-detail/{id}', 'User\LessonController@show')->name('lesson.detail');
 

@@ -20,6 +20,7 @@ class Result extends Model
         'updated_at',
         'deleted_at',
         'total_points',
+        'test_id'
     ];
 
     public function user()

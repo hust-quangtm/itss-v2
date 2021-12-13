@@ -6,7 +6,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Test</div>
-
                 <div class="card-body">
                     @if(session('status'))
                         <div class="row">
@@ -17,8 +16,8 @@
                             </div>
                         </div>
                     @endif
-
-                    <form method="POST" action="{{ route('test.store', [$tests[0]->course_id, $tests[0]->id]) }}">
+                    <form method="POST" action="{{ route('test.store', [$tests[0]->course_id, $exam_id]) }}">
+                        <input type="hidden" name="test_id" value="{{ $exam_id }}">
                         @csrf
                         @foreach($tests as $test)
                             <div class="card mb-3">

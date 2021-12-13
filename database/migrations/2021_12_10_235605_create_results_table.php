@@ -16,6 +16,7 @@ class CreateResultsTable extends Migration
         Schema::create('results', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('test_id');
             $table->unsignedBigInteger('total_points');
             $table->timestamps();
         });

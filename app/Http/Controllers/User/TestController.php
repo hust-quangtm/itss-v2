@@ -16,9 +16,10 @@ class TestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($coure_id, $test_id)
     {
         //
+        $exam_id = $test_id;
         $tests = Test::with(['questions' => function ($query) {
             $query->inRandomOrder()
                 ->with(['questionOptions' => function ($query) {
@@ -28,7 +29,7 @@ class TestController extends Controller
         ->whereHas('questions')
         ->get();
 
-    return view('test', compact('tests'));
+    return view('test', compact('tests', 'exam_id'));
     }
 
     /**
@@ -49,10 +50,12 @@ class TestController extends Controller
      */
     public function store(StoreTestRequest $request)
     {
+        // dd($request->toArray());
         $options = Option::find(array_values($request->input('questions')));
 
         $result = auth()->user()->userResults()->create([
-            'total_points' => $options->sum('points')
+            'total_points' => $options->sum('points'),
+            'test_id' => $request->test_id
         ]);
 
         $questions = $options->mapWithKeys(function ($option) {
@@ -66,50 +69,5 @@ class TestController extends Controller
         $result->questions()->sync($questions);
 
         return redirect()->route('results.show', $result->id);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

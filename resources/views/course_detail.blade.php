@@ -98,7 +98,7 @@
                                                     <p class="btn-holder"><a href="{{ route('add.to.cart', $course->id) }}" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" role="button">Add to cart</a> </p>
                                                     <!-- <input type="submit" value="Thêm khóa học" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Thêm vào giỏ hàng?');"> -->
                                                 @else
-                                                    <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Thêm vào giỏ hàng</a>
+                                                    <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Add to cart</a>
                                                     <!-- <input type="text" hidden value="{{ $course->id }}" class="idDirect"> -->
                                                 @endif
                                             <!-- </form> -->

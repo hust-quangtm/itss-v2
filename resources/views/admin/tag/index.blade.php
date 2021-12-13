@@ -25,7 +25,7 @@
             <div class="hapo-admin-header-link px-5">
                 <ul class="d-flex justify-content-center align-items-center m-0">
                     <li class="nav-item ml-4">
-                        <a href="#"><i class="fas fa-tachometer-alt"></i> Trang  chủ </a>
+                        <a href="#"><i class="fas fa-tachometer-alt"></i> Home </a>
                     </li>
                     <span class="hapo-angle-right ml-4"><i class="fas fa-angle-right"></i></span>
                     <li class="nav-item ml-3">

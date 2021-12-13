@@ -129,43 +129,65 @@ class CourseController extends Controller
         return view('test');
     }
 
-    public function cart()
-    {
+     /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+
+    public function cart(){
         return view('cart');
     }
+    /**
+     * Write code on Method
+     * @return response()
+     */
 
-    public function addToCart($id)
-    {
-        $course = Course::findOrfail($id);
-        if(!$course) {
-            abort(404);
-        }
-        $cart = session()->get('cart');
-        // if cart is empty then this the first course
-        if(!$cart) {
-            $cart = [
-                    $id => [
-                        "name" => $course->name,
-                        "course_qty" => 1,
-                        "price" => $course->price,
-                        "image" => $course->image
-                    ]
+    public function addToCart($id) {
+        $course = Course::findOrFail($id);
+        $cart = session()->get('cart', []);
+        if(isset($cart[$id])) {
+        // $cart[$id]['quantity']++;
+            return redirect()->back()->with('success', 'Course added to cart successfully!');
+        } else {
+            $cart[$id] = [
+                "course_name" => $course->course_name,
+                "quantity" => 1,
+                "price" => $course->price,
+                "image" => $course->image
             ];
             session()->put('cart', $cart);
-            return redirect()->back()->with('success', 'Bạn đã thêm khóa học thành công!');
+            return redirect()->back()->with('success', 'Course added to cart successfully!');
+        }        
+    }
+
+    /**
+     * Write code on Method
+     * @return response()
+     */
+
+    public function updateCart(Request $request){
+        if($request->id){
+            $cart = session()->get('cart');
+            // $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
         }
-        // if cart not empty then check if this course exist then increment course_qty
-        if(isset($cart[$id])) {
-            return redirect()->back()->with('success', 'Bạn đã có khóa học này trong giỏ hàng của mình!');
+    }
+
+    /**
+     * Write code on Method
+     * @return response()
+     */
+
+    public function remove(Request $request)  {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Course removed successfully');
         }
-        // if course not exist in cart then add to cart with course_qty = 1
-        $cart[$id] = [
-            "name" => $course->name,
-            "course_qty" => 1,
-            "price" => $course->price,
-            "image" => $course->image
-        ];
-        session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Bạn đã thêm khóa học thành công!');
     }
 }

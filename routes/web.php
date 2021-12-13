@@ -43,9 +43,13 @@ Route::post('/course/{course_id}/test/{test_id}', 'User\TestController@store')->
 Route::get('/results/{result_id}', 'User\ResultController@show')->name('results.show');
 
 //cart 
-Route::get('/cart', 'User\CourseController@cart')->name('cart.detail');
+Route::get('/cart', 'User\CourseController@cart')->name('cart');
 
-Route::post('/add-to-cart/{id}', 'User\CourseController@addToCart')->name('add.to.cart');
+Route::get('/add-to-cart/{id}', 'User\CourseController@addToCart')->name('add.to.cart');
+
+Route::patch('/update-cart', 'User\CourseController@updateCart')->name('update.cart');
+
+Route::delete('/remove-from-cart', 'User\CourseController@remove')->name('remove.from.cart');
 
 //lesson
 Route::get('/course/lesson-detail/{id}', 'User\LessonController@show')->name('lesson.detail');

@@ -1,112 +1,194 @@
-@extends('layout')
-@section('title', 'Cart')
+@extends('layouts.app')
+@section('title','Shopping Cart')
 @section('content')
-<!-- <div class="modal fade" id="cartModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="col-12">
-                <nav>
-                    <button type="button" class="" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="fa fa-times d-flex justify-content-center rounded-circle position-absolute align-items-center"></span>
-                    </button>
-                </nav>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
-                        Khóa học đã được thêm vào giỏ hàng
-                    </div>
-                    <div style="font-family: Roboto; font-size: 15px; line-height: 18px; text-align: center; color: #5C5C5C;">
-                        Khóa học của bạn đã được thêm vào giỏ hàng, bây giờ bạn có thể xem giỏ hàng để tiếp tục thanh toán
-                    </div>
-                    <a class="nav-link hapo-courses-btn" href=" {{ route('cart.detail') }} ">Xem giỏ hàng</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<main class="my-8">
-            <div class="container px-6 mx-auto">
-                <div class="flex justify-center my-6">
-                    <div class="flex flex-col w-full p-8 text-gray-800 bg-white shadow-lg pin-r pin-y md:w-4/5 lg:w-4/5">
-                      @if ($message = Session::get('success'))
-                          <div class="p-4 mb-3 bg-green-400 rounded">
-                              <p class="text-green-800">{{ $message }}</p>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12 col-sm-12 col-12 main-section">
+              <div class="dropdown">
+                  <button type="button" class="btn btn-info" data-toggle="dropdown">
+                      <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                  </button>
+                  <div class="dropdown-menu">
+                      <div class="row total-header-section">
+                          <div class="col-lg-6 col-sm-6 col-6">
+                              <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
                           </div>
-                      @endif
-                        <h3 class="text-3xl text-bold">Cart List</h3>
-                      <div class="flex-1">
-                        <table class="w-full text-sm lg:text-base" cellspacing="0">
-                          <thead>
-                            <tr class="h-12 uppercase">
-                              <th class="hidden md:table-cell"></th>
-                              <th class="text-left">Name</th>
-                              <th class="pl-5 text-left lg:text-right lg:pl-0">
-                                <span class="lg:hidden" title="Quantity">Qtd</span>
-                                <span class="hidden lg:inline">Quantity</span>
-                              </th>
-                              <th class="hidden text-right md:table-cell"> price</th>
-                              <th class="hidden text-right md:table-cell"> Remove </th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              @foreach ($cartItems as $item)
-                            <tr>
-                              <td class="hidden pb-4 md:table-cell">
-                                <a href="#">
-                                  <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
-                                </a>
-                              </td>
-                              <td>
-                                <a href="#">
-                                  <p class="mb-2 md:ml-4">{{ $item->name }}</p>
-                                  
-                                </a>
-                              </td>
-                              <td class="justify-center mt-6 md:justify-end md:flex">
-                                <div class="h-10 w-28">
-                                  <div class="relative flex flex-row w-full h-8">
-                                    
-                                    <form action="{{ route('cart.update') }}" method="POST">
-                                      @csrf
-                                      <input type="hidden" name="id" value="{{ $item->id}}" >
-                                    <input type="number" name="quantity" value="{{ $item->quantity }}" 
-                                    class="w-6 text-center bg-gray-300" />
-                                    <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">update</button>
-                                    </form>
-                                  </div>
-                                </div>
-                              </td>
-                              <td class="hidden text-right md:table-cell">
-                                <span class="text-sm font-medium lg:text-base">
-                                    ${{ $item->price }}
-                                </span>
-                              </td>
-                              <td class="hidden text-right md:table-cell">
-                                <form action="{{ route('cart.remove') }}" method="POST">
-                                  @csrf
-                                  <input type="hidden" value="{{ $item->id }}" name="id">
-                                  <button class="px-4 py-2 text-white bg-red-600">x</button>
-                              </form>
-                                
-                              </td>
-                            </tr>
-                            @endforeach
-                             
-                          </tbody>
-                        </table>
-                        <div>
-                         Total: ${{ Cart::getTotal() }}
-                        </div>
-                        <div>
-                          <form action="{{ route('cart.clear') }}" method="POST">
-                            @csrf
-                            <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
-                          </form>
-                        </div>
 
+                          @php $total = 0 @endphp
+                          @foreach((array) session('cart') as $id => $details)
+                              @php $total += $details['price']  @endphp
+                          @endforeach
 
+                          <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
+                              <p>Total: <span class="text-info">$ {{ $total }}</span></p>
+                          </div>
                       </div>
-                    </div>
+                      @if(session('cart'))
+                          @foreach(session('cart') as $id => $details)
+                              <div class="row cart-detail">
+                                  <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                                      <img src="{{ $details['image'] }}" />
+                                  </div>
+                                  <div class="col-lg-8 col-sm-8 col-8 cart-detail-course">
+                                      <p>{{ $details['course_name'] }}</p>
+                                      <span class="price text-info"> ${{ $details['price'] }}</span> 
+                                      <!-- <span class="count"> Quantity:{{ $details['quantity'] }}</span> -->
+                                  </div>
+                              </div>
+                          @endforeach
+                      @endif
+                      <div class="row">
+                          <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                              <a href="{{ route('cart') }}" class="btn btn-primary btn-block">View all</a>
+                          </div>
+                      </div>
                   </div>
-            </div>
-        </main>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br/>
+  <div class="container">
+      @if(session('success'))
+          <div class="alert alert-success">
+            {{ session('success') }}
+          </div> 
+      @endif
+      <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Course</th>
+                <th style="width:10%">Price</th>
+                <!-- <th style="width:8%">Quantity</th> -->
+                <th style="width:22%" class="text-center">Subtotal</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @php $total = 0 @endphp
+            @if(session('cart'))
+                @foreach(session('cart') as $id => $details)
+                    @php $total += $details['price']  @endphp
+                    <tr data-id="{{ $id }}">
+                        <td data-th="Course">
+                            <div class="row">
+                                <div class="col-sm-3 hidden-xs"><img src="{{ $details['image'] }}" width="100" height="100" class="img-responsive"/></div>
+                                <div class="col-sm-9">
+                                    <h4 class="nomargin">{{ $details['course_name'] }}</h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td data-th="Price">${{ $details['price'] }}</td>
+                        <!-- <td data-th="Quantity">
+                            <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity update-cart" />
+                        </td> -->
+                        <td data-th="Subtotal" class="text-center">${{ $details['price']}}</td>
+                        <td class="actions" data-th="">
+                            <button class="btn btn-danger btn-sm remove-from-cart"><i class="fa fa-trash-o"></i></button>
+                        </td>
+                    </tr>
+                @endforeach
+            @endif
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" class="text-right"><h3><strong>Total ${{ $total }}</strong></h3></td>
+            </tr>
+            <tr>
+                <td colspan="5" class="text-right">
+                    <a href="{{ route('course.all') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> See All Course</a>
+                    <button class="btn btn-success">Checkout</button>
+                </td>
+            </tr>
+        </tfoot>
+      </table>
+  </div>
+@endsection
+ 
+@section('scripts')
+
+<script type="text/javascript">
+
+  
+
+    $(".update-cart").change(function (e) {
+
+        e.preventDefault();
+
+  
+
+        var ele = $(this);
+
+  
+
+        $.ajax({
+
+            url: '{{ route('update.cart') }}',
+
+            method: "patch",
+
+            data: {
+
+                _token: '{{ csrf_token() }}', 
+
+                id: ele.parents("tr").attr("data-id")
+
+                // quantity: ele.parents("tr").find(".quantity").val()
+
+            },
+
+            success: function (response) {
+
+               window.location.reload();
+
+            }
+
+        });
+
+    });
+
+  
+
+    $(".remove-from-cart").click(function (e) {
+
+        e.preventDefault();
+
+  
+
+        var ele = $(this);
+
+  
+
+        if(confirm("Are you sure want to remove?")) {
+
+            $.ajax({
+
+                url: '{{ route('remove.from.cart') }}',
+
+                method: "DELETE",
+
+                data: {
+
+                    _token: '{{ csrf_token() }}', 
+
+                    id: ele.parents("tr").attr("data-id")
+
+                },
+
+                success: function (response) {
+
+                    window.location.reload();
+
+                }
+
+            });
+
+        }
+
+    });
+
+  
+
+</script>
+
 @endsection

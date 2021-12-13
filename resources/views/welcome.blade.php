@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('home') }}">Trang  chủ</a>
+                    <a href="{{ route('home') }}">Home</a>
                     <a href="https://laracasts.com">Admin</a>
                 </div>
             </div>

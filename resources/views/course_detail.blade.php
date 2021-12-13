@@ -1,13 +1,66 @@
 @extends('layouts.app')
 @section('title','Course Detail')
 @section('content')
-<div class="head-detail container-fluid mt-2 d-flex align-items-center">
-    <ul class="pl-5 d-flex align-content-center justify-content-center">
-        <li class="mx-2"><a href=" {{ route('home') }} ">Home</a></li> >
-        <li class="mx-2"><a href=" {{ route('course.all') }} ">All courses</a></li> >
-        <li class="mx-2"><a href="">Courses detail</a></li>
-    </ul>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-12 main-section">
+                <div class="dropdown">
+                    <button type="button" class="btn btn-info" data-toggle="dropdown">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <div class="row total-header-section">
+                            <div class="col-lg-6 col-sm-6 col-6">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                            </div>
+                            @php $total = 0 @endphp
+                            @foreach((array) session('cart') as $id => $details)
+                                @php $total += $details['price']  @endphp
+                            @endforeach
+
+                            <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
+                                <p>Total: <span class="text-info">$ {{ $total }}</span></p>
+                            </div>
+                        </div>
+                        @if(session('cart'))
+                            @foreach(session('cart') as $id => $details)
+                                <div class="row cart-detail">
+                                    <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                                        <img src="{{ $details['image'] }}" />
+                                    </div>
+                                    <div class="col-lg-8 col-sm-8 col-8 cart-detail-course">
+                                        <p>{{ $details['course_name'] }}</p>
+                                        <span class="price text-info"> ${{ $details['price'] }}</span> 
+                                        <!-- <span class="count"> Quantity:{{ $details['quantity'] }}</span> -->
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                                <a href="{{ route('cart') }}" class="btn btn-primary btn-block">View all</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="container">
+        @if(session('success'))
+            <div class="alert alert-success">
+            {{ session('success') }}
+            </div> 
+        @endif
+    </div>
+    <div class="head-detail container-fluid mt-2 d-flex align-items-center">
+        <ul class="pl-5 d-flex align-content-center justify-content-center">
+            <li class="mx-2"><a href=" {{ route('home') }} ">Home</a></li> >
+            <li class="mx-2"><a href=" {{ route('course.all') }} ">All courses</a></li> >
+            <li class="mx-2"><a href="">Courses detail</a></li>
+        </ul>
+    </div>
     <div class="hapo-detail">
         <div class="container">
             <div class="row pt-5">
@@ -36,18 +89,19 @@
                                     <div class="text-center pb-lg-0 pb-md-2 pb-3 m-3">
                                         @if ($course->check_user_course)
                                             <div class="w-100 text-center">
-                                                <a href="{{ route('course.user.destroy', $course->id) }} " class="btn btn-light hapo-lesson-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Are you sure you want to leave this course?');" >Leave this Course</a>
+                                                <a href="{{ route('course.user.destroy', $course->id) }} " class="btn btn-light hapo-lesson-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Bạn chắn chắn muốn rời khỏi khóa học này chứ?');" >Rời khóa học</a>
                                             </div>
                                         @else
-                                            <form action="{{ route('course.user.store', $course->id) }}" method="post" class="text-center">
-                                                @csrf
+                                            <!-- <form action="{{ route('course.user.store', $course->id) }}" method="post" class="text-center">
+                                                @csrf -->
                                                 @if (Auth::user())
-                                                    <input type="submit" value="Take This Course" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Take This Course?');">
+                                                    <p class="btn-holder"><a href="{{ route('add.to.cart', $course->id) }}" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" role="button">Add to cart</a> </p>
+                                                    <!-- <input type="submit" value="Thêm khóa học" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Thêm vào giỏ hàng?');"> -->
                                                 @else
-                                                    <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Take This Course</a>
-                                                    <input type="text" hidden value="{{ $course->id }}" class="idDirect">
+                                                    <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Add to cart</a>
+                                                    <!-- <input type="text" hidden value="{{ $course->id }}" class="idDirect"> -->
                                                 @endif
-                                            </form>
+                                            <!-- </form> -->
                                         @endif
                                     </div>
                                 </div>

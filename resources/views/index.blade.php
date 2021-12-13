@@ -16,7 +16,7 @@
             <span class="hapo-slide-button-link" >Start Learning Now!</span>
         </a> --}}
     </div>
-    <div class="block-messenger">
+    <!-- <div class="block-messenger">
         <div class="toggle-class">
             <div class="block-chat row">
                 <div class="col-1">
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="messenger d-flex justify-content-center align-items-center position-fixed "><img alt="" class= "icon-mes" src="{{ asset('storage/images/icon_mes.png') }} "></div>
-    </div>
+    </div> -->
 </section>
 <div class="color-fix"></div>
 <section class="hapo-wrap-courses container">
@@ -60,7 +60,10 @@
             @endforeach
         </div>
         <div class="hapo-course-link all-courses col-12 text-center d-flex align-items-center justify-content-center">
-            <a href=" {{ route('course.all') }} " class="hapo-courses-link-all">View All Other Courses <img alt="&gt;&gt;&gt;" src="{{ asset('storage/images/direct_icon.png') }}"></a>
+            <a href=" {{ route('course.all') }} " class="hapo-courses-link-all pb-5 mb-5">
+                View All Other Courses 
+                <!-- <img alt="&gt;&gt;&gt;" src="{{ asset('storage/images/direct_icon.png') }}"> -->
+            </a>
         </div>
     </div>
 </section>
@@ -141,7 +144,7 @@
       <a class="btn-sm next"><i class="fas fa-chevron-right"></i></a>
     </div>
 </section> --}}
-<section class="hapo-wrap-learn container-fluid">
+<!-- <section class="hapo-wrap-learn container-fluid">
     <div class="container hapo-learn-content d-flex  flex-column justify-content-center align-items-center p-0 m-auto">
         <div class="hapo-content-learn text-center">
           <span>Become a member of our <br> growing community!</span>
@@ -150,8 +153,8 @@
             <a class="btn btn-learn-link border-0  px-md-5 py-md-3 px-4 py-2 " href="{{ route('course.all') }}">Start Learning Now!</a>
         </div>
     </div>
-</section>
-<section class="hapo-wrap-statistic container">
+</section> -->
+<section class="hapo-wrap-statistic container-fluid">
     <div class="hapo-content-statistic p-4">
         <div class="hapo-statistic-header d-flex justify-content-center align-items-center">
             <p class="text-center pt-2">Statistic</p>

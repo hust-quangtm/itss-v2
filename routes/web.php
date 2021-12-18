@@ -44,6 +44,15 @@ Route::get('/results/{result_id}', 'User\ResultController@show')->name('results.
 
 Route::get('/course/{id}/your-result', 'User\ResultController@resultUser')->name('test.result');
 
+//cart
+Route::get('/cart', 'User\CourseController@cart')->name('cart');
+
+Route::get('/add-to-cart/{id}', 'User\CourseController@addToCart')->name('add.to.cart');
+
+Route::patch('/update-cart', 'User\CourseController@updateCart')->name('update.cart');
+
+Route::delete('/remove-from-cart', 'User\CourseController@remove')->name('remove.from.cart');
+
 //lesson
 Route::get('/course/lesson-detail/{id}', 'User\LessonController@show')->name('lesson.detail');
 

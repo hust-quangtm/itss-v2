@@ -128,4 +128,53 @@ class CourseController extends Controller
     {
         return view('test');
     }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+
+    public function cart(){
+        return view('cart');
+    }
+
+    public function addToCart($id) {
+        $course = Course::findOrFail($id);
+        $cart = session()->get('cart', []);
+        if(isset($cart[$id])) {
+            return redirect()->back()->with('success', 'Course added to cart successfully!');
+        } else {
+            $cart[$id] = [
+                "id" => $course->id,
+                "course_name" => $course->course_name,
+                "quantity" => 1,
+                "price" => $course->price,
+                "image" => $course->image
+            ];
+            session()->put('cart', $cart);
+            session()->put('course', $course);
+            return redirect()->back()->with('success', 'Course added to cart successfully!');
+        }
+    }
+
+    public function updateCart(Request $request){
+        if($request->id){
+            $cart = session()->get('cart');
+            // $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
+        }
+    }
+
+    public function remove(Request $request)  {
+        if($request->id) {
+            $cart = session()->get('cart');
+            if(isset($cart[$request->id])) {
+                unset($cart[$request->id]);
+                session()->put('cart', $cart);
+            }
+            session()->flash('success', 'Course removed successfully');
+        }
+    }
 }

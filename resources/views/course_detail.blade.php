@@ -41,7 +41,7 @@
                                                 <a href="{{ route('course.user.destroy', $course->id) }} " class="btn btn-light hapo-lesson-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Are you sure you want to leave this course?');" >Leave this Course</a>
                                             </div>
                                         @else
-                                            <form action="{{ route('course.user.store', $course->id) }}" method="post" class="text-center">
+                                            {{-- <form action="{{ route('course.user.store', $course->id) }}" method="post" class="text-center">
                                                 @csrf
                                                 @if (Auth::user())
                                                     <input type="submit" value="Take This Course" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Take This Course?');">
@@ -49,7 +49,12 @@
                                                     <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Take This Course</a>
                                                     <input type="text" hidden value="{{ $course->id }}" class="idDirect">
                                                 @endif
-                                            </form>
+                                            </form> --}}
+                                            @if (Auth::user())
+                                                <p class="btn-holder"><a href="{{ route('add.to.cart', $course->id) }}" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" role="button">Add to cart</a> </p>
+                                            @else
+                                                <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Add to cart</a>
+                                            @endif
                                         @endif
                                     </div>
                                 </div>

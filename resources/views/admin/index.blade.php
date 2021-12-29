@@ -103,7 +103,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item has-treeview {{ Request::is('admin/tags') || Request::is('admin/tags/*') ? 'menu-open' : '' }}">
+                    {{-- <li class="nav-item has-treeview {{ Request::is('admin/tags') || Request::is('admin/tags/*') ? 'menu-open' : '' }}">
                         <a href="#" class="nav-link {{ Request::is('admin/tags') || Request::is('admin/tags/*') ? 'active' : '' }}">
                             <i class="nav-icon fa fa-tag"></i>
                             <p>
@@ -125,7 +125,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
             </nav>
         </div>

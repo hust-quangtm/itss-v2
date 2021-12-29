@@ -52,15 +52,15 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label for="requirement">Quizze: </label>
                                         <textarea class="form-control" rows="4" @error('requirement') is-invalid @enderror" name="requirement">{{ $courses->requirement }}</textarea>
 
                                         @error('requirement')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
-                                    </div>
-                                    <div class="form-group">
+                                    </div> --}}
+                                    {{-- <div class="form-group">
                                         <label for="tag" class="mr-4">Tags: </label>
                                         <div class="row ml-2">
                                             @foreach($tags as $tag)
@@ -75,7 +75,7 @@
                                             </div>
                                             @endforeach
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group col-xs-6">
                                         <label for="avatar">Choose image: </label>
                                         <input type="file" id="image" name="image"

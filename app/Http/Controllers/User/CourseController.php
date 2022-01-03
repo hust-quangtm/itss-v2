@@ -51,7 +51,7 @@ class CourseController extends Controller
      */
     public function show(Request $request, $id)
     {
-        $tests = Test::where('course_id', $id)->get();
+        $tests = Test::where('course_id', $id)->whereHas('questions')->get();
         $otherCourses = Course::query()->OrderByStudents(Course::ORDER['most'])
         ->limit(config('variable.other_course'))
         ->get();

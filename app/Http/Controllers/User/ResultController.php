@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Result;
 use App\Models\Test;
 
@@ -32,18 +33,19 @@ class ResultController extends Controller
         return view('result', compact('result', 'tests'));
     }
 
-    public function resultUser()
+    public function resultUser($course_id)
     {
         $tests = [];
+        $course = Course::findOrFail($course_id);
         $results = Result::whereHas('user', function ($query) {
             $query->whereId(auth()->id());
-        })->get();
+        })->orderBy('id', 'desc')->get();
 
-        foreach ($results as  $result) {
+        foreach ($results as $key => $result) {
             $test = Test::where('id', $result->test_id)->get();
             array_push($tests, $test);
         }
 
-        return view('user-result', compact('results', 'tests'));
+        return view('user-result', compact('results', 'tests', 'course'));
     }
 }

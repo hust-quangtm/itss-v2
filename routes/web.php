@@ -82,4 +82,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
         Route::delete('/{course}/{lesson}', 'Admin\LessonController@destroy')->name('destroy');
     });
 
+    Route::group(['prefix' => 'test', 'as' => 'test.'], function () {
+        Route::get('/course/{id}', 'Admin\TestController@index')->name('index');
+        Route::get('/course/{id}/create', 'Admin\TestController@create')->name('create');
+        Route::post('/course', 'Admin\TestController@store')->name('store');
+        Route::get('/course/{course_id}/test/{test_id}', 'Admin\TestController@edit')->name('edit');
+        Route::post('/course/{course_id}/test/{test_id}/update', 'Admin\TestController@update')->name('update');
+        Route::delete('/course/{course_id}/test/{test_id}/delete', 'Admin\TestController@destroy')->name('delete');
+    });
 });

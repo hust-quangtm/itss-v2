@@ -11,17 +11,21 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Test Name</th>
+                        <th scope="col">Date</th>
                         <th scope="col">Result</th>
                       </tr>
                     </thead>
                     <tbody>
                         @foreach ($tests as $key1 => $test)
                             @foreach($test as $key => $data)
-                                <tr>
-                                    <th scope="row">{{$key1 + 1}}</th>
-                                    <td>{{$data->test_name}}</td>
-                                    <td>{{$results[$key1]->total_points}}</td>
-                                </tr>
+                                @if($data->course_id == $course->id)
+                                    <tr>
+                                        <th scope="row">{{$key1 + 1}}</th>
+                                        <td>{{$data->test_name}}</td>
+                                        <td>{{$results[$key1]->created_at}}</td>
+                                        <td>{{$results[$key1]->total_points}}</td>
+                                    </tr>
+                                @endif
                             @endforeach
                         @endforeach
                     </tbody>

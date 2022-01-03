@@ -10,28 +10,17 @@
     @endif
     <div class="hapo-admin py-3">
         <div class="hapo-admin-header d-flex justify-content-between py-3">
-            <div class="d-flex">
-                <div class="hapo-admin-header-name px-3 d-flex align-items-center">
+            <div class="d-flex col-12">
+                <div class="hapo-admin-header-name px-3 d-flex align-items-center col-6">
                     List Courses
                 </div>
-                <form class="form-inline col-xs-7 text-center" method="GET" action="{{ route('admin.courses.index') }}" id="formSearchUser">
+                <form class="form-inline col-4 text-center" method="GET" action="{{ route('admin.courses.index') }}" id="formSearchUser">
                     <input class="form-control" type="text" placeholder="Search" name="name" value="{{ request('name') }}" size="30">
                     <i class="fa fa-search"></i>
                 </form>
-                <div class="col-xs-4 ml-4 text-right">
+                <div class="ml-4 text-right">
                     <a href="{{ Route('admin.courses.create') }}" class="btn btn-danger" role="button">Create</a>
                 </div>
-            </div>
-            <div class="hapo-admin-header-link px-5">
-                <ul class="d-flex justify-content-center align-items-center m-0">
-                    <li class="nav-item ml-4">
-                        <a href="#"><i class="fas fa-tachometer-alt"></i> Home </a>
-                    </li>
-                    <span class="hapo-angle-right ml-4"><i class="fas fa-angle-right"></i></span>
-                    <li class="nav-item ml-3">
-                        <a href="#">Table</a>
-                    </li>
-                </ul>
             </div>
         </div>
         <div class="hapo-admin-body mt-1 pb-5">
@@ -44,7 +33,6 @@
                         <th class="fix-witdh-name ">Name</th>
                         <th class="fix-witdh-description">Description</th>
                         <th class="fix-witdh-Price">Price</th>
-                        <th class="fix-witdh-Price col">Tag</th>
                         <th class="fix-witdh-teacher">Teacher</th>
                         <th class="fix-witdh-choice">Option</th>
                     </tr>
@@ -57,20 +45,9 @@
                         <td>{{ $course->course_name }}</td>
                         <td>{{ $course->description }}</td>
                         <td>{{ $course->price }} $</td>
-                        <td class="d-flex justify-content-center align-content-center flex-wrap border-0">
-                            @foreach ($course->tags as $tag)
-                            <div class="row">
-                                <div class="col-8">
-                                    <form action="{{ route('admin.course.search.tag', $tag->id) }}" class="mx-1">
-                                        <label for="{{ $tag->id }}"><span class="badge badge-light badge-custom ">{{ $tag->tag_name }}</span></label>
-                                        <input type="submit" hidden id="{{ $tag->id }}">
-                                     </form>
-                                </div>
-                            </div>
-                            @endforeach
-                        </td>
                         <td>{{ $course->teacher->name }}</td>
                         <td class="d-flex justify-content-center align-items-center border-0">
+                            <a href=" {{ route('admin.test.index', $course->id) }} "  class="icon-show mx-1" ><span class="btn btn-success"><i class="fas fa-book-open" aria-hidden="true"></i></span></a>
                             <!-- show -->
                             <a href=" {{ route('admin.lesson.index', $course->id) }} "  class="icon-show mx-1" ><span class="btn btn-info"><i class="fas fa-folder-open" aria-hidden="true"></i></span></a>
                             <!-- edit -->

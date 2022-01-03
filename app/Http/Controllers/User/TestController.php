@@ -8,6 +8,7 @@ use App\Models\Option;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreTestRequest;
+use App\Models\Question;
 
 class TestController extends Controller
 {
@@ -18,16 +19,11 @@ class TestController extends Controller
      */
     public function index($coure_id, $test_id)
     {
-        //
         $exam_id = $test_id;
-        $tests = Test::with(['questions' => function ($query) {
-            $query->inRandomOrder()
-                ->with(['questionOptions' => function ($query) {
-                    $query->inRandomOrder();
-                }]);
-        }])
-        ->whereHas('questions')
-        ->get();
+
+        $tests = Question::where('test_id', $test_id)->with(['questionOptions' => function ($query) {
+            $query->inRandomOrder();
+        }])->with('test')->get();
 
     return view('test', compact('tests', 'exam_id'));
     }
@@ -50,7 +46,6 @@ class TestController extends Controller
      */
     public function store(StoreTestRequest $request)
     {
-        // dd($request->toArray());
         $options = Option::find(array_values($request->input('questions')));
 
         $result = auth()->user()->userResults()->create([

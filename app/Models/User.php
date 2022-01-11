@@ -15,11 +15,13 @@ class User extends Authenticatable
     const ROLE = [
         'user' => 1,
         'teacher' => 2,
+        'system' => 3,
     ];
 
     const ROLE_LABEL = [
         'user' => 'User',
         'teacher' => 'Teacher',
+        'system' => 'System',
     ];
 
     /**

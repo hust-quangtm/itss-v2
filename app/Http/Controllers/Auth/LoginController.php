@@ -71,6 +71,10 @@ class LoginController extends Controller
             if ($role == User::ROLE['teacher']) {
                 return Auth::guard('admin')->attempt($data, $request->filled('remember'));
             }
+
+            if ($role == User::ROLE['system']) {
+                return Auth::guard('admin')->attempt($data, $request->filled('remember'));
+            }
         }
     }
 
@@ -94,6 +98,10 @@ class LoginController extends Controller
             }
 
             if (Auth::guard('admin')->user()->role_id == User::ROLE['teacher']) {
+                return redirect()->route('admin.admin_dasboard');
+            }
+
+            if (Auth::guard('admin')->user()->role_id == User::ROLE['system']) {
                 return redirect()->route('admin.admin_dasboard');
             }
         }

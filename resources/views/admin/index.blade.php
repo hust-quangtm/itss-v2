@@ -52,29 +52,31 @@
         <div class="sidebar">
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item has-treeview {{ Request::is('admin/users') || Request::is('admin/users/*') ? 'menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ Request::is('admin/users') || Request::is('admin/users/*') ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-user"></i>
-                            <p>
-                                Manager User
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview ">
-                            <li class="nav-item">
-                                <a href=" {{ route('admin.users.index') }} " class="nav-link {{ Route::is('admin.users.index') ? 'active' : '' }} ">
-                                    <i class="nav-icon fas fa-list"></i>
-                                    <p>User List</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href=" {{ route('admin.users.create') }} " class="nav-link {{ Route::is('admin.users.create') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-plus"></i>
-                                    <p>User Create</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                    @if(auth()->user()->role_id == 2)
+                        <li class="nav-item has-treeview {{ Request::is('admin/users') || Request::is('admin/users/*') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link {{ Request::is('admin/users') || Request::is('admin/users/*') ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-user"></i>
+                                <p>
+                                    Manager User
+                                    <i class="right fa fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview ">
+                                <li class="nav-item">
+                                    <a href=" {{ route('admin.users.index') }} " class="nav-link {{ Route::is('admin.users.index') ? 'active' : '' }} ">
+                                        <i class="nav-icon fas fa-list"></i>
+                                        <p>User List</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href=" {{ route('admin.users.create') }} " class="nav-link {{ Route::is('admin.users.create') ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-plus"></i>
+                                        <p>User Create</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    @endif
                     <li class="nav-item has-treeview {{ Request::is('admin/courses') || Request::is('admin/courses/*') || Request::is('admin/lesson/*') ? 'menu-open' : '' }}">
                         <a href="#" class="nav-link {{ Request::is('admin/courses') || Request::is('admin/courses/*') || Request::is('admin/lesson/*')? 'active' : '' }}">
                             <i class="nav-icon fas fa-book"></i>
@@ -98,29 +100,6 @@
                             </li>
                         </ul>
                     </li>
-                    {{-- <li class="nav-item has-treeview {{ Request::is('admin/tags') || Request::is('admin/tags/*') ? 'menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ Request::is('admin/tags') || Request::is('admin/tags/*') ? 'active' : '' }}">
-                            <i class="nav-icon fa fa-tag"></i>
-                            <p>
-                                Manager Tag
-                                <i class="right fa fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href=" {{ route('admin.tags.index') }} " class="nav-link {{ Route::is('admin.tags.index') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-list"></i>
-                                    <p>Tag list</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href=" {{ route('admin.tags.create') }} " class="nav-link {{ Route::is('admin.tags.create') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-plus"></i>
-                                    <p>Thêm Tag</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li> --}}
                 </ul>
             </nav>
         </div>

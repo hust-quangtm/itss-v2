@@ -39,7 +39,8 @@
                 </thead>
                 <tbody>
                    @foreach($courses as $key => $course)
-                   <tr>
+                    @if($course->teacher->name == auth()->user()->name || auth()->user()->role_id == 2)
+                    <tr>
                         <td class="text-center"> {{ $courses->firstItem() + $key }} </td>
                         <td class="text-center"><img src="{{ ($course->image == null) ? '' : asset('storage/images/' . $course->image) }}" alt="" class="rounded-circle" width="65px" height="65px"></td>
                         <td>{{ $course->course_name }}</td>
@@ -62,20 +63,9 @@
                             </form>
                        </td>
                    </tr>
+                    @endif
                    @endforeach
                 </tbody>
-                {{-- <tfoot>
-                    <tr align="center">
-                        <th>STT</th>
-                        <th class="fix-witdh-name">Image</th>
-                        <th class="fix-witdh-name">Name</th>
-                        <th class="fix-witdh-description">Description</th>
-                        <th class="fix-witdh-Price">Price</th>
-                        <th class="fix-witdh-Price">Tag</th>
-                        <th class="fix-witdh-teacher">Teacher</th>
-                        <th class="fix-witdh-choice">Option</th>
-                    </tr>
-                </tfoot> --}}
             </table>
             <div class="col-12 text-right hapo-admin-pages">
                 {{ $courses->appends($_GET)->links('pagination') }}

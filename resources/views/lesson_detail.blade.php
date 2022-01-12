@@ -1,16 +1,14 @@
 @extends('layouts.app')
 @section('title','Lesson Detail')
 @section('content')
-{{-- {{dd($lesson)}} --}}
     <div class="hapo-detail">
         <div class="container">
             <div class="row pt-5">
                 <div class="col-7 p-0">
                     <div class="hapo-detail-course-header d-flex justify-content-center">
-                        {{-- <img src="{{ asset('storage/images/'.$lesson->course->image) }} " alt=""> --}}
-                        <video controls width="665" height="439">
-                            <source src="{{ asset('storage/images/php-intro.mp4') }}">
-                        </video>
+                        <div class="rick-roll">
+                            <iframe width="665" height="439" src="{{ $lesson->video_url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
                     <div class="tab-pane" id="navReview" role="tabpanel" aria-labelledby="navReviewTab">
                         <div class="px-3">

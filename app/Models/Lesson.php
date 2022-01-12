@@ -21,7 +21,7 @@ class Lesson extends Model
      *
      * @var array
      */
-    protected $fillable = ['lesson_name', 'description', 'requirement', 'time', 'course_id'];
+    protected $fillable = ['lesson_name', 'description', 'requirement', 'time', 'course_id', 'video_url'];
 
     /**
      * Indicates if the model should be timestamped.

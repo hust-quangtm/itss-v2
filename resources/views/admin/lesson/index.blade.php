@@ -11,15 +11,15 @@
     <div class="hapo-admin py-3">
         <div class="hapo-admin-header d-flex justify-content-between py-3">
             <div class="d-flex col-12">
-                <div class="hapo-admin-header-name px-3 d-flex align-items-center col-6">
-                    List Courses
+                <div class="hapo-admin-header-name px-3 d-flex align-items-center col-10">
+                    List Lesson
                 </div>
-                <form class="form-inline col-4 text-center" method="GET" action="{{ route('admin.lesson.index', $courseId) }}" id="formSearchUser">
+                {{-- <form class="form-inline col-4 text-center" method="GET" action="{{ route('admin.lesson.index', $courseId) }}" id="formSearchUser">
                     <input class="form-control" type="text" placeholder="Search" name="name" value="{{ request('name') }}" size="30">
                     <i class="fa fa-search"></i>
-                </form>
+                </form> --}}
                 <div class="ml-4 text-right">
-                    <a href="{{ Route('admin.lesson.create', $courseId) }}" class="btn btn-danger" role="button">Create</a>
+                    <a href="{{ Route('admin.lesson.create', $courseId) }}" class="btn btn-danger" role="button">Create Lesson</a>
                 </div>
 
             </div>
@@ -48,11 +48,11 @@
                         <td> {{ $lesson->time_lesson }} </td>
                         <td class="d-flex justify-content-center align-items-center">
                             {{-- show --}}
-                            <a href="#"  class="icon-show mx-1" ><span class="btn btn-info"><i class="fas fa-folder-open" aria-hidden="true"></i></span></a>
+                            {{-- <a href="#"  class="icon-show mx-1" ><span class="btn btn-info"><i class="fas fa-folder-open" aria-hidden="true"></i></span></a> --}}
                             <!-- edit -->
-                            <a href="{{ route('admin.lesson.edit', [ $courseId, $lesson->id]) }}"  class="icon-edit mx-1" ><span class="btn btn-primary"> <i class="fas fa-edit" aria-hidden="true"></i></span> </a>
+                            <a href="{{ route('admin.lesson.edit', [ $courseId, $lesson->id]) }}"  class="icon-edit mx-1" data-toggle="tooltip" data-placement="top" title="Edit Lesson"><span class="btn btn-primary"> <i class="fas fa-edit" aria-hidden="true"></i></span> </a>
                             <!-- delete -->
-                            <form action="{{ route('admin.lesson.destroy', [ $courseId, $lesson->id]) }}" method="post" id="delete">
+                            <form action="{{ route('admin.lesson.destroy', [ $courseId, $lesson->id]) }}" method="post" id="delete" data-toggle="tooltip" data-placement="top" title="Delete Lesson">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger icon-delete" onclick="return confirm('Are you sure ?')" >

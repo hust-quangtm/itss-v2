@@ -44,12 +44,12 @@
                         <td class="text-center">{{ count($test->questions) }}</td>
                         <td class="d-flex justify-content-center align-items-center">
                             <!-- edit -->
-                            <a href="{{ route('admin.test.edit', ['course_id'=>$test->course_id, 'test_id'=>$test->id])}}"  class="icon-edit mx-1" ><span class="btn btn-primary"> <i class="fas fa-edit" aria-hidden="true"></i></span> </a>
+                            <a href="{{ route('admin.test.edit', ['course_id'=>$test->course_id, 'test_id'=>$test->id])}}"  class="icon-edit mx-1" data-toggle="tooltip" data-placement="top" title="Edit Test"><span class="btn btn-primary"> <i class="fas fa-edit" aria-hidden="true"></i></span> </a>
                             <!-- delete -->
                             <form action="{{ route('admin.test.delete', ['course_id'=>$test->course_id, 'test_id'=>$test->id])}}" method="post" id="delete">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="btn btn-danger icon-delete" onclick="return confirm('Are you sure ?')" >
+                                <button type="submit" class="btn btn-danger icon-delete" data-toggle="tooltip" data-placement="top" title="Delete Test" onclick="return confirm('Are you sure ?')" >
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </button>
                             </form>

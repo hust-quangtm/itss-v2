@@ -43,6 +43,7 @@ class LessonController extends Controller
         ->limit(config('variable.other_course'))
         ->get();
         $lesson = Lesson::findOrfail($id);
+        // dd($lesson->toArray());
         $lessonReviews = $lesson->lessonReviews;
         $courseTags = $lesson->course->tag;
         $ratingStar = [

@@ -56,6 +56,7 @@ class LessonController extends Controller
             'time'        => $request->time,
             'description' => $request->description,
             'requirement' => $request->requirement,
+            'video_url' => $request->video_url,
             'course_id' => $id,
         ]);
 

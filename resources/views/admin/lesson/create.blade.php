@@ -52,14 +52,10 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    {{-- <div class="form-group">
-                                        <label for="requirement">Quizze: </label>
-                                        <textarea class="form-control" rows="4" @error('requirement') is-invalid @enderror" name="requirement" placeholder="requirement">{{ old('requirement') }}</textarea>
-
-                                        @error('requirement')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div> --}}
+                                    <div class="form-group">
+                                        <label for="name">Youtube URL: </label>
+                                        <input type="text" class="form-control @error('time') is-invalid @enderror" name="video_url" placeholder="Enter embed URL code" required>
+                                    </div>
                                 </div>
                                 <div class="box-footer">
                                     <button type="submit" class="btn btn-primary">Create</button>

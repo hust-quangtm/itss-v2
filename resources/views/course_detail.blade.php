@@ -214,15 +214,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 course-info h-50 ml-5 w-100 px-0">
+                <div class="col-4 course-info h-50 ml-5 w-100 px-0 ">
                     <div class="hapo-description mb-3 overflow-hidden">
-                       <div class="p-3">
-                            <div class="hapo-description-header">Description course</div>
+                       <div class="p-3 d-flex flex-column align-items-center">
+                            <div class="hapo-description-header text-warning">Teacher</div>
                             <hr>
-                            <div class="hapo-description-body">
-                                <p class="text-justify">
-                                    {{ $course->description }}
-                                </p>
+                            <div class="hapo-description-body d-flex flex-column align-items-center justify-content-center">
+                                <div class="hapo-review-content-avatar">
+                                    <img class="rounded-circle" style="width: 90px;height: 90px;"
+                                        src="{{ asset('storage/images/user.png') }} " alt="">
+                                </div>
+                                <div class="hapo-review-content-username text-left">
+                                    <p class="m-0 p-0 mt-3" style="color: #5C5C5C;">{{ $courseTeacher->name }} </p>
+                                </div>
+                                <div class="hapo-review-content-username">
+                                    <p class="m-0 p-0 mt-3" style="color: #5C5C5C;">{{ $courseTeacher->email }} </p>
+                                </div>
+                                <div class="hapo-review-content-username">
+                                    <p class="m-0 p-0 mt-3" style="color: #5C5C5C;">{{ $courseTeacher->phone }} </p>
+                                </div>
                             </div>
                        </div>
                     </div>

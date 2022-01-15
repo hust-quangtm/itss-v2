@@ -61,6 +61,7 @@ class CourseController extends Controller
             ['lesson_name', 'LIKE', "%" . $request->name . "%"],
         ])->paginate(config('variable.pagination'));
         $courReviews = $course->reviews;
+        $courseTeacher = $course->teacher;
         $tags = $course->tags;
         $ratingStar = [
             'five_star' => config('variable.five_star'),
@@ -70,7 +71,7 @@ class CourseController extends Controller
             'one_star' => config('variable.one_star')
         ];
         return view('course_detail', compact(['course', 'lessonCourse', 'otherCourses', 'courReviews',
-        'ratingStar', 'tags', 'tests']));
+        'ratingStar', 'tags', 'tests','courseTeacher']));
     }
 
     public function search(Request $request)

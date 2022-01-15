@@ -17,15 +17,24 @@
                     </div>
                     <div class="hapo-detail-content-left mt-3 mb-5">
                         <nav class="hapo-nav-detail">
-                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link col-4" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a>
-                                <a class="nav-item nav-link active col-4" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
+                            <div class="nav nav-tabs nav-fill " id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link col-3" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a>
+                                <a class="nav-item nav-link col-3" id="navCourseInfoTab" data-toggle="tab" href="#navCourseInfo" role="tab" aria-controls="nav-register" aria-selected="false">Description</a>
+                                <a class="nav-item nav-link active col-3" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
+                                
                                 @if($course->check_user_course)
-                                    <a class="nav-item nav-link col-4" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Examination</a>
+                                    <a class="nav-item nav-link col-3" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Exam</a>
                                 @endif
+                                
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade" id="navCourseInfo" role="tabpanel"
+                                aria-labelledby="navCourseInfo">
+                                <div class="px-3 mx-3 py-4">
+                                    <h4>{{$course->description}}</h4>
+                                </div>
+                            </div>
                             <div class="tab-pane fade show active" id="navLesson" role="tabpanel" aria-labelledby="navLessonTab">
                                 <div class="hapo-header-filter d-flex align-items-center justify-content-between my-3 mx-3">
                                     <div class="hapo-header-form d-flex align-items-center justify-content-between">

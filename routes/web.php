@@ -22,7 +22,13 @@ Route::get('/course/all', 'User\CourseController@index')->name('course.all');
 
 Route::get('/course/course-search', 'User\CourseController@search')->name('course.search');
 
+Route::get('/teacher/all', 'User\CourseController@teacher')->name('teacher.all');
+
+Route::get('/teacher/teacher-search', 'User\CourseController@searchTeacher')->name('teacher.search');
+
 Route::get('/course/{id}', 'User\CourseController@show')->name('course.detail');
+
+Route::get('/teacher/{id}', 'User\CourseController@showTeacher')->name('teacher.detail');
 
 Route::post('/take-user-course/{id}', 'User\CourseUserController@store')->name('course.user.store');
 

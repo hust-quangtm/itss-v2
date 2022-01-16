@@ -70616,7 +70616,7 @@ footer .hapo-copyright p {
   border-bottom: 1px solid #e2e0e0;
 }
 .hapo-detail-content-left .nav-tabs {
-  width: 70%;
+  width: 82%;
 }
 .hapo-detail-content-left .nav-tabs .nav-item {
   font: bold 20px UTM;
@@ -70735,7 +70735,7 @@ footer .hapo-copyright p {
 }
 .course-info .hapo-description {
   background-color: #ffffff;
-  height: 439px;
+  height: 350px;
 }
 .course-info .hapo-description .hapo-description-header {
   -webkit-text-stroke: 0.5px;
@@ -70884,7 +70884,19 @@ footer .hapo-copyright p {
 .hapo-review-content .hapo-review-content-header .hapo-review-content-username {
   text-transform: capitalize;
   -webkit-text-stroke: 1px;
-  font: bold 18px UTM;
+  font: bold 13px UTM;
+  color: #505353;
+}
+.hapo-review-content .hapo-review-content-header .hapo-review-content-email {
+  text-transform: capitalize;
+  -webkit-text-stroke: 1px;
+  font: bold 13px UTM;
+  color: #505353;
+}
+.hapo-review-content .hapo-review-content-header .hapo-review-content-phone {
+  text-transform: capitalize;
+  -webkit-text-stroke: 1px;
+  font: bold 13px UTM;
   color: #505353;
 }
 .hapo-review-content .hapo-review-content-header .hapo-review-content-rating {

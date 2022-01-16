@@ -17,15 +17,24 @@
                     </div>
                     <div class="hapo-detail-content-left mt-3 mb-5">
                         <nav class="hapo-nav-detail">
-                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link col-4" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a>
-                                <a class="nav-item nav-link active col-4" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
+                            <div class="nav nav-tabs nav-fill " id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link col-3" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a>
+                                <a class="nav-item nav-link col-3" id="navCourseInfoTab" data-toggle="tab" href="#navCourseInfo" role="tab" aria-controls="nav-register" aria-selected="false">Description</a>
+                                <a class="nav-item nav-link active col-3" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
+                                
                                 @if($course->check_user_course)
-                                    <a class="nav-item nav-link col-4" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Examination</a>
+                                    <a class="nav-item nav-link col-3" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Exam</a>
                                 @endif
+                                
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade" id="navCourseInfo" role="tabpanel"
+                                aria-labelledby="navCourseInfo">
+                                <div class="px-3 mx-3 py-4">
+                                    <h4>{{$course->description}}</h4>
+                                </div>
+                            </div>
                             <div class="tab-pane fade show active" id="navLesson" role="tabpanel" aria-labelledby="navLessonTab">
                                 <div class="hapo-header-filter d-flex align-items-center justify-content-between my-3 mx-3">
                                     <div class="hapo-header-form d-flex align-items-center justify-content-between">
@@ -205,15 +214,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 course-info h-50 ml-5 w-100 px-0">
+                <div class="col-4 course-info h-50 ml-5 w-100 px-0 ">
                     <div class="hapo-description mb-3 overflow-hidden">
-                       <div class="p-3">
-                            <div class="hapo-description-header">Description course</div>
+                       <div class="p-3 d-flex flex-column align-items-center">
+                            <div class="hapo-description-header text-warning">Teacher</div>
                             <hr>
-                            <div class="hapo-description-body">
-                                <p class="text-justify">
-                                    {{ $course->description }}
-                                </p>
+                            <div class="hapo-description-body d-flex flex-column align-items-center justify-content-center">
+                                <div class="hapo-review-content-avatar">
+                                    <img class="rounded-circle" style="width: 90px;height: 90px;"
+                                        src="{{ asset('storage/images/user.png') }} " alt="">
+                                </div>
+                                <div class="hapo-review-content-username text-left">
+                                    <div class="m-0 p-0 mt-3 h5" style="color: #5C5C5C;">name: {{ $courseTeacher->name }} </div>
+                                </div>
+                                <div class="hapo-review-content-username">
+                                    <div class="m-0 p-0 mt-3 h5" style="color: #5C5C5C;">email: {{ $courseTeacher->email }} </div>
+                                </div>
+                                <div class="hapo-review-content-username">
+                                    <div class="m-0 p-0 mt-3 h5" style="color: #5C5C5C;">phone: {{ $courseTeacher->phone }} </div>
+                                </div>
                             </div>
                        </div>
                     </div>

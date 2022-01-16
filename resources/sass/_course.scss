@@ -141,7 +141,7 @@ background: linear-gradient(90deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%,
   }
 
   .nav-tabs {
-    width: 70%;
+    width: 82%;
 
     .nav-item {
       @include fontUTM(bold, 20px, $color_title);
@@ -247,7 +247,7 @@ background: linear-gradient(90deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%,
 
   .hapo-description {
     background-color: $main_color;
-    height: 439px;
+    height: 350px;
 
     .hapo-description-header {
       -webkit-text-stroke: 0.5px;
@@ -415,7 +415,19 @@ background: linear-gradient(90deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%,
     .hapo-review-content-username {
       text-transform: capitalize;
       -webkit-text-stroke: 1px;
-      @include fontUTM(bold, 18px, $color_title);
+      @include fontUTM(bold, 13px, $color_title);
+    }
+
+    .hapo-review-content-email {
+      text-transform: capitalize;
+      -webkit-text-stroke: 1px;
+      @include fontUTM(bold, 13px, $color_title);
+    }
+
+    .hapo-review-content-phone {
+      text-transform: capitalize;
+      -webkit-text-stroke: 1px;
+      @include fontUTM(bold, 13px, $color_title);
     }
 
     .hapo-review-content-rating {

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','Course Detail')
 @section('content')
+
 <div class="head-detail container-fluid mt-2 d-flex align-items-center">
     <ul class="pl-5 d-flex align-content-center justify-content-center">
         <li class="mx-2"><a href=" {{ route('home') }} ">Home</a></li> >
@@ -8,6 +9,16 @@
         <li class="mx-2"><a href="">Courses detail</a></li>
     </ul>
 </div>
+
+<br/>
+<div class="container">
+    @if(session('success'))
+        <div class="alert alert-success">
+        {{ session('success') }}
+        </div> 
+    @endif
+</div>
+
     <div class="hapo-detail">
         <div class="container">
             <div class="row pt-5">
@@ -47,10 +58,10 @@
                                     <div class="text-center pb-lg-0 pb-md-2 pb-3 m-3">
                                         @if ($course->check_user_course)
                                             <div class="w-100 text-center">
-                                                <a href="{{ route('course.user.destroy', $course->id) }} " class="btn btn-light hapo-lesson-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Are you sure you want to leave this course?');" >Leave this Course</a>
+                                                <a href="{{ route('course.user.destroy', $course->id) }}" class="btn btn-light hapo-lesson-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Are you sure you want to leave this course?');" >Leave this Course</a>
                                             </div>
                                         @else
-                                            <form action="{{ route('course.user.store', $course->id) }}" method="post" class="text-center">
+                                            {{-- <form action="{{ route('course.user.store', $course->id) }}" method="post" class="text-center">
                                                 @csrf
                                                 @if (Auth::user())
                                                     <input type="submit" value="Take This Course" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"  onclick="return confirm('Take This Course?');">
@@ -58,7 +69,51 @@
                                                     <a href="{{ route('course.detail', $course->id) }}" class="card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Take This Course</a>
                                                     <input type="text" hidden value="{{ $course->id }}" class="idDirect">
                                                 @endif
-                                            </form>
+                                            </form> --}}
+                                            {{-- @if ($cart->check_user_cart)
+                                                <div class="w-100 text-center">
+                                                    <a href="{{ route('cart.user.destroy', $course->id) }}"
+                                                        class="btn btn-light hapo-lesson-btn border-0 py-lg-0 px-4 py-2">
+                                                            Payment
+                                                    </a>
+                                                </div>
+                                            @else --}}
+                                            {{-- <form action="{{ route('cart.user.store', $course->id) }}" method="post" class="text-center">
+                                                @csrf --}}
+                                                @if (Auth::user())
+                                                    {{-- <input type="submit" 
+                                                        value="Add To Cart" 
+                                                        class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"> --}}
+                                                    <p class="btn-holder"><a href="{{ route('add.to.cart', $course->id) }}" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" role="button">Add to cart</a> </p>
+                                                    {{-- <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addToCart">
+                                                        Launch demo modal
+                                                    </button>
+                                                    
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="addToCart" tabindex="-1" role="dialog" aria-labelledby="addToCartTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="addToCartTitle">The course has been added to your cart</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Your course has been added to the cart, you can now view the cart to continue checkout
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-primary">See your shopping cart</button>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div> --}}
+                                                @else
+                                                    <a href="{{ route('course.detail', $course->id) }}" class="addToCartBtn card-link-more btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" {{ Auth::check() ? '' : 'data-toggle=modal data-target=#exampleModal' }}>Add To Cart</a>
+                                                    <input type="text" hidden value="{{ $course->id }}" class="idDirect">
+                                                @endif
+                                            {{-- @endif --}}
                                         @endif
                                     </div>
                                 </div>
@@ -315,3 +370,13 @@
         </div>
     </div>
 @endsection
+
+{{-- @section('scripts')
+<script>
+    $(doccument).ready(function() {
+        $('.addToCartBtn').click(function(e) {
+            e.preventDefault();
+        });
+    });
+</script>
+@endsection --}}

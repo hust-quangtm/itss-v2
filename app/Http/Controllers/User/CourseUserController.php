@@ -14,11 +14,15 @@ class CourseUserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($id)
+    public function store()
     {
-        $course = Course::findOrFail($id);
-        $course->learner()->attach(Auth::user()->id);
-        return redirect()->back();
+        $carts= session()->get('cart', []);
+        foreach ($carts as $course) {
+            $course = Course::findOrFail($course['course_id']);
+            $course->learner()->attach(Auth::user()->id);
+        }
+        $carts = session()->put('cart', []);
+        return redirect()->route('course.all')->with('success', 'Take the course successfully!');
     }
 
     /**

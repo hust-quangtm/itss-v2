@@ -31,6 +31,18 @@ Route::get('/course/{id}', 'User\CourseController@show')->name('course.detail');
 Route::get('/teacher/{id}', 'User\CourseController@showTeacher')->name('teacher.detail');
 
 Route::post('/take-user-course/{id}', 'User\CourseUserController@store')->name('course.user.store');
+//checkout
+Route::post('/take-user-course', 'User\CourseUserController@store')->name('course.user.store');
+
+//cart
+Route::get('/cart', 'User\CourseController@cart')->name('cart');
+
+Route::get('/add-to-cart/{id}', 'User\CourseController@addToCart')->name('add.to.cart');
+
+Route::patch('/update-cart', 'User\CourseController@updateCart')->name('update.cart');
+
+Route::post('remove-from-cart/{id}', 'User\CourseController@removeCart')->name('cart.user.destroy');
+
 
 Route::get('/leave-user-course/{id}', 'User\CourseUserController@destroy')->name('course.user.destroy');
 

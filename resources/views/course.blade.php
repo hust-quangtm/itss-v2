@@ -18,7 +18,7 @@
                 </form>
             </div>
         </div>
-      
+
         <div class="course-all row">
             @foreach($courses as $key => $item)
                 <div class="left-course col-6 my-4">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="wrap-quizes col-xl-4 text-center">
                                     <a href="#" class="card-link mb-2 d-block">Times</a>
-                                    <p class="mb-0">{{ $item->time['hours'] }} (h)</p>
+                                    <p class="mb-0">{{ $item->time['hours'] }} h {{ $item->time['minutes'] }} m</p>
                                 </div>
                             </div>
                         </div>

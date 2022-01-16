@@ -15,7 +15,7 @@
     @if(session('success'))
         <div class="alert alert-success">
         {{ session('success') }}
-        </div> 
+        </div>
     @endif
 </div>
 
@@ -29,14 +29,14 @@
                     <div class="hapo-detail-content-left mt-3 mb-5">
                         <nav class="hapo-nav-detail">
                             <div class="nav nav-tabs nav-fill " id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link col-3" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a>
-                                <a class="nav-item nav-link col-3" id="navCourseInfoTab" data-toggle="tab" href="#navCourseInfo" role="tab" aria-controls="nav-register" aria-selected="false">Description</a>
                                 <a class="nav-item nav-link active col-3" id="navLessonTab" data-toggle="tab" href="#navLesson" role="tab" aria-controls="nav-login" aria-selected="true">Lesson</a>
-                                
+                                <a class="nav-item nav-link col-3" id="navCourseInfoTab" data-toggle="tab" href="#navCourseInfo" role="tab" aria-controls="nav-register" aria-selected="false">Description</a>
+                                <a class="nav-item nav-link col-3" id="navReviewTab" data-toggle="tab" href="#navReview" role="tab" aria-controls="nav-register" aria-selected="false">Review</a>
+
                                 @if($course->check_user_course)
                                     <a class="nav-item nav-link col-3" id="navTeacherTab" data-toggle="tab" href="#navTeacher" role="tab" aria-controls="nav-register" aria-selected="false">Exam</a>
                                 @endif
-                                
+
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
@@ -81,15 +81,15 @@
                                             {{-- <form action="{{ route('cart.user.store', $course->id) }}" method="post" class="text-center">
                                                 @csrf --}}
                                                 @if (Auth::user())
-                                                    {{-- <input type="submit" 
-                                                        value="Add To Cart" 
+                                                    {{-- <input type="submit"
+                                                        value="Add To Cart"
                                                         class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2"> --}}
                                                     <p class="btn-holder"><a href="{{ route('add.to.cart', $course->id) }}" class="btn btn-light hapo-courses-btn border-0 py-lg-0 px-4 py-2" role="button">Add to cart</a> </p>
                                                     {{-- <!-- Button trigger modal -->
                                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addToCart">
                                                         Launch demo modal
                                                     </button>
-                                                    
+
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="addToCart" tabindex="-1" role="dialog" aria-labelledby="addToCartTitle" aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered" role="document">

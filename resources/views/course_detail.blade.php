@@ -225,13 +225,13 @@
                                         src="{{ asset('storage/images/user.png') }} " alt="">
                                 </div>
                                 <div class="hapo-review-content-username text-left">
-                                    <p class="m-0 p-0 mt-3" style="color: #5C5C5C;">{{ $courseTeacher->name }} </p>
+                                    <div class="m-0 p-0 mt-3 h5" style="color: #5C5C5C;">name: {{ $courseTeacher->name }} </div>
                                 </div>
                                 <div class="hapo-review-content-username">
-                                    <p class="m-0 p-0 mt-3" style="color: #5C5C5C;">{{ $courseTeacher->email }} </p>
+                                    <div class="m-0 p-0 mt-3 h5" style="color: #5C5C5C;">email: {{ $courseTeacher->email }} </div>
                                 </div>
                                 <div class="hapo-review-content-username">
-                                    <p class="m-0 p-0 mt-3" style="color: #5C5C5C;">{{ $courseTeacher->phone }} </p>
+                                    <div class="m-0 p-0 mt-3 h5" style="color: #5C5C5C;">phone: {{ $courseTeacher->phone }} </div>
                                 </div>
                             </div>
                        </div>

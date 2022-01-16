@@ -12,6 +12,7 @@ use App\Models\Review;
 use App\Models\Tag;
 use App\Models\Test;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
@@ -29,12 +30,14 @@ class CourseController extends Controller
         return view('course', compact('courses', 'teachers', 'tags'));
     }
 
-      /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function teacher()
+    {
+        $courses = Course::orderByDesc('id')->paginate(config('variable.pagination'));
+        $teachers = User::where('role_id', User::ROLE['teacher'])->get();
+        $tags = Tag::orderByDesc('id')->limit(config('variable.pagination'))->get();
+        return view('teacher', compact('courses', 'teachers', 'tags'));
+    }
+
     public function store(ReviewRequest $request)
     {
         $review = $request->all();
@@ -43,12 +46,6 @@ class CourseController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Request $request, $id)
     {
         $tests = Test::where('course_id', $id)->whereHas('questions')->get();
@@ -74,11 +71,42 @@ class CourseController extends Controller
         'ratingStar', 'tags', 'tests','courseTeacher']));
     }
 
+    public function showTeacher(Request $request, $id)
+    {
+        $teacher = User::findOrfail($id);
+        $courses = Course::where('teacher_id', $id)->get();
+        $count = count($courses);
+        $user =  DB::table('course_users')
+        ->select('user_id')
+        ->join('courses', 'course_users.course_id', '=', 'courses.id')
+        ->join('users','courses.teacher_id','=','users.id')
+        ->where('courses.teacher_id','=',$id)
+        ->get();
+        $countUser = count($user);
+        return view('teacher_detail', compact(['teacher','courses','count','countUser']));
+    }
+
+    public function searchTeacher(Request $request)
+    {
+        $teachers = User::where([
+            ['role_id', '=', 2],
+            ['name', 'LIKE', "%" . $request->name . "%"],
+        ])->paginate(config('variable.pagination'));
+        $data = [
+            'teachers' => $teachers
+        ];
+        return view('teacher', $data);
+    }
+
     public function search(Request $request)
     {
-        $teachers = User::where('role_id', User::ROLE['teacher'])->get();
+        //$teachers = User::where('role_id', 2)->get();
         $tags = Tag::all();
         $courses = Course::query()->SearchFilter($request)->paginate(config('variable.pagination'));
+        $teachers =User::where([
+            ['name', '==',$request->name],
+        ])->paginate(config('variable.pagination'));
+        // dd(count($teachers));
         $data = [
             'courses' => $courses,
             'teachers' => $teachers,

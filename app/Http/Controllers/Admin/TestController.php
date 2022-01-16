@@ -44,7 +44,6 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->toArray());
         $test['test_name'] = $request->test_name;
         $test['description'] = $request->description;
         $test['course_id'] = $request->course_id;

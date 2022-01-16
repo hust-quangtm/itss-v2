@@ -11,24 +11,18 @@
             id="sibarNavbar">
             <ul class="navbar-nav align-items-center hapo-nav-item">
                 <li class="nav-item  hapo-list-item">
-                    <a class="nav-link {{ Request::is('teacher/*') ? 'active' : '' }}"
-                        href=" {{ route('teacher.all') }} ">TEACHER</a>
-                </li>
-                <li class="nav-item  hapo-list-item">
                     <a class="nav-link {{ Route::is('home') ? 'active' : '' }}"
                         href=" {{ route('home') }} ">HOME</a>
                 </li>
                 <li class="nav-item hapo-list-item">
                     <a class="nav-link {{ Request::is('course/*') ? 'active' : '' }}"
                         href="{{ route('course.all') }}">All COURSES</a>
-                    {{-- <a class="nav-link {{ $currentUrl == 'home' ? 'active' : '' }}"
-                    href="{{ route('course.all') }}">All COURSES</a> --}}
+                </li>
+                <li class="nav-item  hapo-list-item">
+                    <a class="nav-link {{ Request::is('teacher/*') ? 'active' : '' }}"
+                        href=" {{ route('teacher.all') }} ">TEACHER</a>
                 </li>
                 @if(Auth::guard('web')->check())
-                    {{-- <li class="nav-item hapo-list-item">
-                    <a class="nav-link {{ Route::is('user.profile') ? 'active' : '' }}"
-                    href=" {{ route('user.profile') }} ">PROFILE</a>
-                    </li> --}}
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle mx-md-2 my-3 my-sm-1 text-center"
                             href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"

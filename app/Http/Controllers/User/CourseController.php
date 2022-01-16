@@ -25,7 +25,7 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::orderByDesc('id')->paginate(config('variable.pagination'));
-        $teachers = User::where('role_id', User::ROLE['teacher'])->get();
+        $teachers = User::where('role_id', 2)->orWhere('role_id', 3)->get();
         $tags = Tag::orderByDesc('id')->limit(config('variable.pagination'))->get();
         return view('course', compact('courses', 'teachers', 'tags'));
     }
@@ -33,7 +33,7 @@ class CourseController extends Controller
     public function teacher()
     {
         $courses = Course::orderByDesc('id')->paginate(config('variable.pagination'));
-        $teachers = User::where('role_id', User::ROLE['teacher'])->get();
+        $teachers = User::where('role_id', 2)->orWhere('role_id', 3)->get();
         $tags = Tag::orderByDesc('id')->limit(config('variable.pagination'))->get();
         return view('teacher', compact('courses', 'teachers', 'tags'));
     }
@@ -91,7 +91,8 @@ class CourseController extends Controller
         $teachers = User::where([
             ['role_id', '=', 2],
             ['name', 'LIKE', "%" . $request->name . "%"],
-        ])->paginate(config('variable.pagination'));
+        ])->orWhere([['role_id', '=', 3],
+        ['name', 'LIKE', "%" . $request->name . "%"],])->paginate(config('variable.pagination'));
         $data = [
             'teachers' => $teachers
         ];
@@ -100,13 +101,11 @@ class CourseController extends Controller
 
     public function search(Request $request)
     {
-        //$teachers = User::where('role_id', 2)->get();
         $tags = Tag::all();
         $courses = Course::query()->SearchFilter($request)->paginate(config('variable.pagination'));
         $teachers =User::where([
             ['name', '==',$request->name],
         ])->paginate(config('variable.pagination'));
-        // dd(count($teachers));
         $data = [
             'courses' => $courses,
             'teachers' => $teachers,

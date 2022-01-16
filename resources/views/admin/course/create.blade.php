@@ -51,27 +51,6 @@
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    {{-- <div class="form-group">
-                                        <label for="requirement">Quizze: </label>
-                                        <textarea class="form-control" rows="4" @error('requirement') is-invalid @enderror" name="requirement" placeholder="requirement">{{ old('requirement') }}</textarea>
-
-                                        @error('requirement')
-                                            <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div> --}}
-                                    {{-- <div class=" form-group">
-                                        <label for="birth_day" class="mr-4">Tags: </label>
-                                        <div class="row ml-2">
-                                            @foreach($tags as $tag)
-                                            <div class="col-4">
-                                                <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" id="{{ $tag->id }}" name="tagId[]" @if(is_array(old('tagId')) && in_array($tag->id, old('tagId'))) checked @endif>
-                                                <label class="form-check-label" for="{{ $tag->id }}">
-                                                    {{ $tag->tag_name }}
-                                                </label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                    </div> --}}
                                     <div class="form-group col-xs-6">
                                         <label for="avatar">Choose image: </label>
                                         <input type="file" id="image" name="image"

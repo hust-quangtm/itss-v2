@@ -12,7 +12,7 @@
         <div class="hapo-admin-header d-flex justify-content-between py-3">
             <div class="d-flex col-12">
                 <div class="hapo-admin-header-name px-3 d-flex align-items-center col-10">
-                    List Courses
+                    Courses List
                 </div>
                 {{-- <form class="form-inline col-4 text-center" method="GET" action="{{ route('admin.courses.index') }}" id="formSearchUser">
                     <input class="form-control" type="text" placeholder="Search" name="name" value="{{ request('name') }}" size="30">
@@ -48,9 +48,9 @@
                         <td>{{ $course->price }} $</td>
                         <td>{{ $course->teacher->name }}</td>
                         <td class="d-flex justify-content-center align-items-center border-0">
-                            <a href=" {{ route('admin.test.index', $course->id) }} "  class="icon-show mx-1"  data-toggle="tooltip" data-placement="top" title="List Test"><span class="btn btn-success"><i class="fas fa-book-open" aria-hidden="true"></i></span></a>
+                            <a href=" {{ route('admin.test.index', $course->id) }} "  class="icon-show mx-1"  data-toggle="tooltip" data-placement="top" title="Test List"><span class="btn btn-success"><i class="fas fa-book-open" aria-hidden="true"></i></span></a>
                             <!-- show -->
-                            <a href=" {{ route('admin.lesson.index', $course->id) }} "  class="icon-show mx-1" data-toggle="tooltip" data-placement="top" title="List Lesson"><span class="btn btn-info"><i class="fas fa-folder-open" aria-hidden="true"></i></span></a>
+                            <a href=" {{ route('admin.lesson.index', $course->id) }} "  class="icon-show mx-1" data-toggle="tooltip" data-placement="top" title="Lesson List"><span class="btn btn-info"><i class="fas fa-folder-open" aria-hidden="true"></i></span></a>
                             <!-- edit -->
                             <a href="{{ route('admin.courses.edit', $course->id) }}"  class="icon-edit mx-1" data-toggle="tooltip" data-placement="top" title="Edit Course"><span class="btn btn-primary"> <i class="fas fa-edit" aria-hidden="true"></i></span> </a>
                             <!-- delete -->

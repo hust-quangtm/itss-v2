@@ -12,17 +12,17 @@
         <div class="hapo-admin-header d-flex justify-content-between py-3">
             <div class="d-flex">
                 <div class="hapo-admin-header-name px-3 d-flex align-items-center">
-                    List Users
+                    Users List
                 </div>
-                <form class="form-inline col-xs-7 text-center" method="GET" action="{{ route('admin.users.index') }}" id="formSearchUser">
+                {{-- <form class="form-inline col-xs-7 text-center" method="GET" action="{{ route('admin.users.index') }}" id="formSearchUser">
                     <input class="form-control" type="text" placeholder="Search" name="name" value="{{ request('name') }}" size="30">
                     <i class="fa fa-search"></i>
-                </form>
+                </form> --}}
                 <div class="col-xs-4 ml-4 text-right">
                     <a href="{{ Route('admin.users.create') }}" class="btn btn-danger" role="button">Create</a>
                 </div>
             </div>
-            <div class="hapo-admin-header-link px-5">
+            {{-- <div class="hapo-admin-header-link px-5">
                 <ul class="d-flex justify-content-center align-items-center m-0">
                     <li class="nav-item ml-4">
                         <a href="#"><i class="fas fa-tachometer-alt"></i> Home </a>
@@ -32,7 +32,7 @@
                         <a href="#">Table</a>
                     </li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
         <div class="hapo-admin-body mt-1 pb-5">
             <table class="table table-striped table-bordered table-hover">

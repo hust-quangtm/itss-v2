@@ -12,7 +12,7 @@
         <div class="hapo-admin-header d-flex justify-content-between py-3">
             <div class="d-flex col-12">
                 <div class="hapo-admin-header-name px-3 d-flex align-items-center col-10">
-                    List Lesson
+                    Lesson List
                 </div>
                 {{-- <form class="form-inline col-4 text-center" method="GET" action="{{ route('admin.lesson.index', $courseId) }}" id="formSearchUser">
                     <input class="form-control" type="text" placeholder="Search" name="name" value="{{ request('name') }}" size="30">

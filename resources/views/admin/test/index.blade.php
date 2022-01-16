@@ -12,7 +12,7 @@
         <div class="hapo-admin-header d-flex justify-content-between py-3">
             <div class="d-flex col-12">
                 <div class="hapo-admin-header-name px-3 d-flex align-items-center col-10">
-                    List Tests
+                    Tests List
                 </div>
                 <div class="ml-4 text-right">
                     <a href="{{ route('admin.test.create', $course->id) }}" class="btn btn-danger" role="button">Create Test</a>

@@ -19,7 +19,11 @@
                     <i class="fa fa-search"></i>
                 </form> --}}
                 <div class="ml-4 text-right">
-                    <a href="{{ Route('admin.courses.create') }}" class="btn btn-danger" role="button">Create Course</a>
+                    @if(auth()->user()->role_id == 2 && auth()->user()->course_creation_times == 0)
+                        <a href="{{ Route('admin.payment.index') }}" class="btn btn-danger" role="button">Create Course</a>
+                    @else
+                        <a href="{{ Route('admin.courses.create') }}" class="btn btn-danger" role="button">Create Course</a>                       
+                    @endif
                 </div>
             </div>
         </div>

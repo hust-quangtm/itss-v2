@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\CourseTag;
 use App\Models\Lesson;
 use App\Models\Tag;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -78,6 +79,12 @@ class CourseController extends Controller
             $tagArray = $request->tagId;
             if (!empty($tagArray)) {
                 $course->tag()->attach($tagArray);
+            }
+
+            if (Auth::guard('admin')->user()->id == 2) {
+                $user = User::findOrFail(Auth::guard('admin')->user()->id);
+                $user['avatar'] = $createCourseTime - 1;
+                $user->update($user);
             }
 
             DB::commit();

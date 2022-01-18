@@ -30,7 +30,6 @@ Route::get('/course/{id}', 'User\CourseController@show')->name('course.detail');
 
 Route::get('/teacher/{id}', 'User\CourseController@showTeacher')->name('teacher.detail');
 
-Route::post('/take-user-course/{id}', 'User\CourseUserController@store')->name('course.user.store');
 //checkout
 Route::post('/take-user-course', 'User\CourseUserController@store')->name('course.user.store');
 
@@ -90,6 +89,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
     Route::resource('tags', 'Admin\TagController');
 
     Route::get('courses/search-tag/{id}', 'Admin\CourseController@searchByTag')->name('course.search.tag');
+    
+    Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
+        Route::get('/courses/payment-index', 'Admin\PaymentController@paymentIndex')->name('index');
+        Route::post('/courses/payment', 'Admin\PaymentController@payment')->name('payment');
+    });
 
     Route::group(['prefix' => 'lesson', 'as' => 'lesson.'], function () {
         Route::get('/{course}/index', 'Admin\LessonController@index')->name('index');

@@ -38,7 +38,8 @@ body {
     .active,
     a:hover {
       color: $main_color;
-      background: $color_link;
+      background: rgb(255,138,0);
+      background: linear-gradient(90deg, rgba(255,138,0,1) 0%, rgba(255,192,0,1) 100%);    
     }
   }
 }

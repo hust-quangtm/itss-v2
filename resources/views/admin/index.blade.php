@@ -93,10 +93,17 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href=" {{ route('admin.courses.create') }} " class="nav-link  {{ Route::is('admin.courses.create') ? 'active' : '' }}">
-                                    <i class="nav-icon fas fa-plus"></i>
-                                    <p>Course Create</p>
-                                </a>
+                                @if(auth()->user()->role_id == 2 && auth()->user()->course_creation_times == 0)
+                                    <a href="{{ Route('admin.payment.index') }}" class="nav-link" role="button">
+                                        <i class="nav-icon fas fa-plus"></i>
+                                        <p>Course Create</p>
+                                    </a>
+                                @else
+                                    <a href=" {{ route('admin.courses.create') }} " class="nav-link  {{ Route::is('admin.courses.create') ? 'active' : '' }}">
+                                        <i class="nav-icon fas fa-plus"></i>
+                                        <p>Course Create</p>
+                                    </a>
+                                @endif
                             </li>
                         </ul>
                     </li>

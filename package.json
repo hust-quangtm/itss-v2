@@ -18,7 +18,7 @@
         "lodash": "^4.17.20",
         "popper.js": "^1.12",
         "resolve-url-loader": "^3.1.2",
-        "sass": "^1.47.0",
+        "sass": "^1.48.0",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.11"
     },
@@ -27,6 +27,6 @@
         "admin-lte": "^3.0.5",
         "jquery-confirm": "^3.3.4",
         "slick-carousel": "^1.8.1",
-        "webpack": "^5.65.0"
+        "webpack": "^5.66.0"
     }
 }
